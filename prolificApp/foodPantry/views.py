@@ -6,12 +6,13 @@ foodPantry_app = Blueprint('foodPantry', __name__)
 def index():
 	return "landing page"
 @foodPantry_app.route('/About')
-def index(about):
+def about():
 	return "About"
 @foodPantry_app.route('/Directory')
-def index(directory):
+def directory():
 	return "Directory"
 @foodPantry_app.route('/Food pantry profile')
-def index(fpProfile):
+
+def fpProfile():
 	return "Food pantry profile"
 
