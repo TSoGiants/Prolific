@@ -7,12 +7,13 @@ def index():
 	return "landing page"
 @foodPantry_app.route('/about')
 def about():
-	return "About"
+	return render_template('About.html')
+
 @foodPantry_app.route('/directory')
 def directory():
-	return "Directory"
-@foodPantry_app.route('/food pantry profile')
+	return render_template('Directory.html')
 
+@foodPantry_app.route('/food pantry profile')
 def fpProfile():
-	return "Food pantry profile"
+	return render_template('Food pantry profile.html')
 
