@@ -4,7 +4,7 @@ foodPantry_app = Blueprint('foodPantry', __name__)
 
 @foodPantry_app.route('/')
 def index():
-	return "landing page"
+	return render_template(LandingPage.html)
 @foodPantry_app.route('/about')
 def about():
 	return render_template('About.html')
