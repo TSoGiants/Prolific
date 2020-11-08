@@ -12,6 +12,6 @@ def index(about):
 def index(directory):
 	return "Directory"
 @foodPantry_app.route('/Food pantry profile')
-def index(fp profile):
+def index(fpProfile):
 	return "Food pantry profile"
 
