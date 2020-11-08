@@ -15,5 +15,5 @@ def directory():
 
 @foodPantry_app.route('/food pantry profile')
 def fpProfile():
-	return render_template('Food pantry profile.html')
+	return render_template('Food pantry profile.html') 
 
