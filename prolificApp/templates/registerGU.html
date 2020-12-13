@@ -1,35 +1,29 @@
 {%extends "base.html"%}
 {%block content%}
 <h1>General User Registration</h1>
-<form>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+<br></br>
+<form method="post">
+  <div class="firstname">
+    <label for="fname">First name</label>
+    <input type="text" class="form-control" id="fname" name="fname" placeholder="John">
   </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Example select</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
+  <div class="lastname">
+    <label for="lname">Last name</label>
+    <input type="text" class="form-control" id="lname" name="lname" placeholder="Smith">
   </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect2">Example multiple select</label>
-    <select multiple class="form-control" id="exampleFormControlSelect2">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
+  <div class="email">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="john.smith@example.com">
   </div>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  <div class="password">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" name="password" id="password">
   </div>
+  <div class="confpassword">
+    <label for="confpassword">Confirm password</label>
+    <input type="password" class="form-control" id="confpassword" name="confpassword">
+  </div>
+  <br></br>
 </form>
 <button type="button" class="btn btn-primary btn-lg btn-block">Sign Up</button>
 {% endblock %}
