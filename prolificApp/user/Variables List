@@ -1,0 +1,20 @@
+Registration Pages 
+Food Pantry Form
+Category			Form variable 	Database variable 
+Food pantry name 	fpname	
+Food pantry email	fpemail	
+Address				fpadress	
+Phone number 		fpphone	
+Website link		fpwebsite	
+Password 			fppassword	
+Confirm password	fpconfirm	
+
+User Form 
+Category		Form Variable 	Database Variable 
+First name 		gufirst	
+Last name 		gulast	
+Email 			guemail	
+State 			state	
+Zip code 		zipcode	
+password		gupasword	
+Confirm password guconfirm	
