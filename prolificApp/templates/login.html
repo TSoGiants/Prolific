@@ -1,15 +1,23 @@
-anything
+
 {%extends "base.html"%}
 {%block content%}
+<h1>Login</h1>
+<form method="post">
+	<div class="form-group">
+		<label for="email">Email address:</label><br>
+		<input type="email" class="form-control" id="email" name="email" placeholder="name@example.com"><br>
+	</div>	
 
+	<div class="form-group">
+		<label for="passwrd">Password:</label><br>
+		<input type="password" id="passwrd" name="password">
+	</div>	
 
+	<div class="checkbox">
+		<label><input type="checkbox">Remember me</label><br>
+	</div>	
+	<button type="submit" class="btn btn-default">Submit</button>
 
-
-
-
-
-
-
-
+</form>	
 
 {% endblock %}
