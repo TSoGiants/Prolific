@@ -4,20 +4,23 @@
 <h1>Login</h1>
 <form method="post">
 	<div class="form-group">
-		<label for="email">Email address:</label><br>
+		<label for="email">Email address</label><br>
 		<input type="email" class="form-control" id="email" name="email" placeholder="name@example.com"><br>
-	</div>	
+	</div>
 
 	<div class="form-group">
-		<label for="passwrd">Password:</label><br>
-		<input type="password" id="passwrd" name="password">
-	</div>	
-
+		<label for="passwrd">Password</label><br>
+		<input type="password" class="form-control" id="passwrd" name="password">
+	</div>
+	<div id="passwordHelpBlock" class="form-text">
+  Forgot your password? <a href="/editprofile">Click here to reset your password.</a>
+	</div>
+<br>
 	<div class="checkbox">
-		<label><input type="checkbox">Remember me</label><br>
-	</div>	
+		<label><input type="checkbox"> Remember me</label><br>
+	</div>
 	<button type="submit" class="btn btn-default">Submit</button>
 
-</form>	
+</form>
 
 {% endblock %}
