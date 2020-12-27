@@ -1,0 +1,13 @@
+$theme-colors: (
+  "primary": #74e85b,
+  "danger": #ff4136,
+);
+$jubotron-bg: #FFFDD0;
+$navbar-light-color: #FFFDD0;
+
+// sets jumbotron background
+.big-banner{
+  background-image: url("https://cdn.pixabay.com/photo/2017/07/07/12/31/lime-2481346_960_720.jpg");
+  background-size: 100%;
+}
+@import "../bootstrap/scss/bootstrap";
