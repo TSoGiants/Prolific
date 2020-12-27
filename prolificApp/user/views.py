@@ -1,4 +1,10 @@
-from flask import Flask, Blueprint, render_template
+from flask import Flask, Blueprint, render_template, redirect
+from flask import url_for
+from flask import send_from_directory
+from flask import request
+import os
+from prolificApp.user.models import FoodPantries, Clients
+from prolificApp import db,app
 
 user_app = Blueprint('Users', __name__)
 
@@ -11,12 +17,23 @@ def logout():
 @user_app.route('/registerFP')
 def registerFP():
 	return render_template('registerFP.html')
+
 @user_app.route('/registerGU')
 def registerGU():
+	FlaskForm = AddUser()
+	
+
+
 	return render_template('registerGU.html')
-@user_app.route('/profile')
+
+
+
+
+
 @user_app.route('/editprofile')
 def editprofile():
 	return render_template('editprofile.html')
+
+@user_app.route('/profile')	
 def profile():
 	return render_template('profile.html')

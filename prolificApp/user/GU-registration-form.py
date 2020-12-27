@@ -1,13 +1,12 @@
 from flask import Flask, render_template, session, redirect, url_for, session, flash
 from flask_wtf import FlaskForm
-from wtforms import (StringField, IntegerField,SubmitField)
+from wtforms import (StringField, IntegerField,SubmitField, validators)
 from wtforms.validators import DataRequired
 
-app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'mysecretkey'
-
-class InfoForm(FlaskForm):
+#creates the registration form
+class AddUser(FlaskForm):
 
 	gufirst = StringField('First Name')
 	gulast = StringField("Last Name")
