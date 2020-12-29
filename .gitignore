@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#config.py
+prolificApp/config.py
+
+# sass stuff
+prolificApp/static/styles/main.scss.css
+prolificApp/static/styles/main.scss.css.map

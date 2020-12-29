@@ -6,6 +6,7 @@ import os
 from prolificApp.user.models import FoodPantries, Clients
 from prolificApp import db,app
 
+
 user_app = Blueprint('Users', __name__)
 
 @user_app.route('/login')

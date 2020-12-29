@@ -2,8 +2,8 @@ from prolificApp import db
 
 #connects clients table to food pantry table
 serves = db.Table('serves',
-	db.Column('foodpantry_id', db.Integer, db.ForeignKey('FoodPantries.foodpantries_id')),
-    db.Column('client_id', db.Integer, db.ForeignKey('clients.clients_id'))
+	db.Column('foodpantries_id', db.Integer, db.ForeignKey('food_pantries.foodpantries_id')),
+    db.Column('clients_id', db.Integer, db.ForeignKey('clients.clients_id'))
     )
 # database set up for food pantry info
 class FoodPantries(db.Model):
