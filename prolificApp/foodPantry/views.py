@@ -31,3 +31,4 @@ def fpProfile():
 	return render_template('FoodPantryProfile.html')
 
 #creates endpoint for the food pantry profile page webpage
+

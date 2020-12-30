@@ -18,7 +18,6 @@ class FoodPantries(db.Model):
 	bio =db.Column(db.Text)
 
 
-
 serves = db.relationship('CLients', secondary=serves, backref= db.backref('statesServed', lazy = 'dynamic') )
 
 def __init__(self,foodPantryName, FPemail, FPaddress, FPphone, FPwebsite, timings, infoBring, bio ):
