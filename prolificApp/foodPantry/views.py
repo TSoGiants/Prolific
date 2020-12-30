@@ -5,6 +5,8 @@ from flask import request
 import os
 from prolificApp.user.models import FoodPantries, Clients
 from prolificApp import db,app
+from werkzeug.security import generate_password_hash
+
 
 foodPantry_app = Blueprint('foodPantry', __name__)
 

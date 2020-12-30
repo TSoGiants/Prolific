@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'mysecretkey'
 
-class AddFoodPantry(FlaskForm):
+class InfoForm(FlaskForm):
 
 	fpname = StringField('Food Pantry Name')
 	fpemail = StringField("Food Pantry's Email")
