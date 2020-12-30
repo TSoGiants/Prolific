@@ -7,16 +7,17 @@ from prolificApp.user.models import FoodPantries, Clients
 from prolificApp import db,app
 from werkzeug.security import generate_password_hash
 
-
-
 user_app = Blueprint('Users', __name__)
 
 @user_app.route('/login')
 def login():
 	return render_template('login.html')
+
+
 @user_app.route('/logout')
 def logout():
 	return render_template('logout.html')
+
 
 @user_app.route('/registerFP')
 def registerFP():
@@ -60,9 +61,6 @@ def registerGU():
 	return render_template('registerGU.html', form = form)
 
 
-
-
-
 @user_app.route('/GUeditprofile')
 def GUeditprofile():
 	return render_template('GUeditprofile.html')
@@ -71,6 +69,7 @@ def GUeditprofile():
 @user_app.route('/FPeditprofile')
 def FPeditprofile():
 	return render_template('FPeditprofile.html')	
+
 
 @user_app.route('/profile')	
 def profile():
