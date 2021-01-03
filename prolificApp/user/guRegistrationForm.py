@@ -4,7 +4,7 @@ from wtforms import (StringField, IntegerField,SubmitField, validators)
 from wtforms.validators import DataRequired
 
 
-app.config['SECRET_KEY'] = 'mysecretkey'
+
 #creates the registration form
 class AddUser(FlaskForm):
 
@@ -15,4 +15,4 @@ class AddUser(FlaskForm):
 	zipcode = IntegerField("Zipcode")
 	gupasword = StringField('Password')
 	guconfirm = StringField('Confirm Password')
-    submit = SubmitField('Sign Up')
+	submit = SubmitField('Sign Up')

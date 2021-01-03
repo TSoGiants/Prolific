@@ -1,7 +1,7 @@
 {%extends "base.html"%}
 {%block content%}
 <h1>Food Pantry Registration</h1>
-<form action="javascript:;" onsubmit="create_account()", method="POST">
+<form method="POST">
     {# This hidden_tag is a CSRF security feature. #}
     {{ form.hidden_tag() }}
 

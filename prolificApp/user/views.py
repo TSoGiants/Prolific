@@ -68,9 +68,11 @@ def GUeditprofile():
 	return render_template('GUeditprofile.html', form = form)
 
 
+
+
 @user_app.route('/FPeditprofile')
 def FPeditprofile():
-	return render_template('FPeditprofile.html' form = form)	
+	return render_template('FPeditprofile.html', form = form)	
 
 
 @user_app.route('/profile')	

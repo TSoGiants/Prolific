@@ -1,12 +1,10 @@
 from flask import Flask, render_template, session, redirect, url_for, session, flash
 from flask_wtf import FlaskForm
-from wtforms import (StringField,
-                     ,SubmitField)
+from wtforms import (StringField, SubmitField)
 from wtforms.validators import DataRequired
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = 'mysecretkey'
 
 class AddFoodPantry(FlaskForm):
 
@@ -18,7 +16,7 @@ class AddFoodPantry(FlaskForm):
 	fpwebsite = StringField("Food Pantry's Website")
 	fppassword = StringField('Password')
 	fpconfirm = StringField('Confirm Password')
-    submit = SubmitField('Sign Up')
+	submit = SubmitField('Sign Up')
 
 
 
