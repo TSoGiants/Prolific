@@ -11,17 +11,18 @@ from prolificApp.user.fpRegistrationForm import AddFoodPantry
 
 user_app = Blueprint('Users', __name__)
 
-@user_app.route('/login')
+#this route accepts info from form and checks database for users and anthencitates users
+@user_app.route('/login', methods= ('GET', 'POST'))
 def login():
 	return render_template('login.html')
 
 
-@user_app.route('/logout')
+@user_app.route('/logout', methods= ('GET', 'POST'))
 def logout():
 	return render_template('logout.html')
 
 
-@user_app.route('/registerFP')
+@user_app.route('/registerFP', methods= ('GET', 'POST'))
 def registerFP():
 	form = AddFoodPantry()
 
@@ -31,18 +32,18 @@ def registerFP():
 		address  = form.fpadress.data
 		phone = form.fpphone.data
 		website = form.fpwebsite.data
-		password = generate_password_hash(form.password.data)
+		password = generate_password_hash(form.fppassword.data)
 
-		new_food_pantry = FoodPantry(name, email, address, phone, website, password)
+		new_food_pantry = FoodPantries(name, email, address, phone, website, password)
 		db.session.add(new_food_pantry)
 		db.session.commit()
 
-		return redirect(url_for('FPeditprofile'))
+		return redirect(url_for('Users.FPeditprofile'))
 
 	return render_template('registerFP.html', form = form)
 
 
-@user_app.route('/registerGU')
+@user_app.route('/registerGU', methods= ('GET', 'POST'))
 def registerGU():
 	form = AddUser()
 
@@ -52,27 +53,27 @@ def registerGU():
 		email = form.guemail.data
 		state = form.state.data
 		zipcode = form.zipcode.data
-		password = generate_password_hash(form.password.data)
+		password = generate_password_hash(form.gupassword.data)
 
-		new_user = User(first, last, email, state, zipcode, password)
+		new_user = Clients(first, last, email, state, zipcode, password)
 		db.session.add(new_user)
 		db.session.commit()
 
-		return redirect(url_for('GUeditprofile'))
+		return redirect(url_for('Users.GUeditprofile'))
 
 	return render_template('registerGU.html', form = form)
 
 
-@user_app.route('/GUeditprofile')
+@user_app.route('/GUeditprofile', methods= ('GET', 'POST'))
 def GUeditprofile():
-	return render_template('GUeditprofile.html', form = form)
+	return render_template('GUeditprofile.html')
 
 
 
 
-@user_app.route('/FPeditprofile')
+@user_app.route('/FPeditprofile', methods= ('GET', 'POST'))
 def FPeditprofile():
-	return render_template('FPeditprofile.html', form = form)
+	return render_template('FPeditprofile.html')
 
 
 @user_app.route('/profile')

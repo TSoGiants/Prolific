@@ -16,19 +16,21 @@ class FoodPantries(db.Model):
 	timings = db.Column(db.Text)
 	infoBring = db.Column(db.Text)
 	bio =db.Column(db.Text)
+	FPpassword = db.Column(db.Text)
 
 
-serves = db.relationship('CLients', secondary=serves, backref= db.backref('statesServed', lazy = 'dynamic') )
+	serves = db.relationship('Clients', secondary=serves, backref= db.backref('statesServed', lazy = 'dynamic') )
 
-def __init__(self,foodPantryName, FPemail, FPaddress, FPphone, FPwebsite, timings, infoBring, bio ):
-	self.foodPantryName = foodPantryName
-	self.FPemail = FPemail 
-	self.FPaddress = FPaddress
-	self.FPphone = FPphone
-	self.FPwebsite = FPwebsite
-	self.timings = timings
-	self.infoBring = infoBring
-	self.bio = bio
+	def __init__(self, foodPantryName, FPemail, FPaddress, FPphone, FPwebsite, timings, infoBring, bio, FPpassword ):
+		self.foodPantryName = foodPantryName
+		self.FPemail = FPemail 
+		self.FPaddress = FPaddress
+		self.FPphone = FPphone
+		self.FPwebsite = FPwebsite
+		self.timings = timings
+		self.infoBring = infoBring
+		self.bio = bio
+		self.FPpassword = FPpassword
 
 	def __repr__(self):
 		return f"The name of the food pantry is {self.foodPantryName}"
@@ -42,13 +44,15 @@ class Clients(db.Model):
 	GUemail = db.Column(db.Text)
 	GUstate = db.Column(db.Text)
 	GUzipcode = db.Column(db.Text)
+	GUpassword = db.Column(db.Text)
 
-def __init__(firstName, lastName, GUemail, GUzipcode, GUstate ):
-	self.firstName = firstName
-	self.lastName = lastName
-	self.GUemail = GUemail
-	self.GUstate = GUstate
-	self.GUzipcode = GUzipcode	       
+	def __init__(self, firstName, lastName, GUemail, GUzipcode, GUstate, GUpassword ):
+		self.firstName = firstName
+		self.lastName = lastName
+		self.GUemail = GUemail
+		self.GUstate = GUstate
+		self.GUzipcode = GUzipcode	
+		self.GUpassword = GUpassword       
 
 	def __repr__(self):
 		return f"The client is {self.firstName} {self.lastName}" 

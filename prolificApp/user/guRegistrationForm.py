@@ -13,6 +13,6 @@ class AddUser(FlaskForm):
 	guemail = StringField('Email')
 	state = StringField("State")
 	zipcode = IntegerField("Zipcode")
-	gupasword = StringField('Password')
+	gupassword = StringField('Password')
 	guconfirm = StringField('Confirm Password')
 	submit = SubmitField('Sign Up')
