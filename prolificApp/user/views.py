@@ -6,8 +6,8 @@ import os
 from prolificApp.user.models import FoodPantries, Clients
 from prolificApp import db,app
 from werkzeug.security import generate_password_hash
-from prolificApp.user.GU-registration-form import AddUser
-from prolificApp.user.FP-registration-form import AddFoodPantry
+from prolificApp.user.guRegistrationForm import AddUser
+from prolificApp.user.fpRegistrationForm import AddFoodPantry
 
 user_app = Blueprint('Users', __name__)
 

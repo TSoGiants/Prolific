@@ -8,6 +8,7 @@ from prolificApp import db,app
 from werkzeug.security import generate_password_hash
 
 
+
 foodPantry_app = Blueprint('foodPantry', __name__)
 
 @foodPantry_app.route('/')

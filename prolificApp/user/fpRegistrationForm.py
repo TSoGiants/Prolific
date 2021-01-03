@@ -20,3 +20,5 @@ class AddFoodPantry(FlaskForm):
 	fpconfirm = StringField('Confirm Password')
     submit = SubmitField('Sign Up')
 
+
+
