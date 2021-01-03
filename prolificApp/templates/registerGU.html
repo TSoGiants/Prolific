@@ -3,13 +3,13 @@
 <h1>General User Registration</h1>
 <br></br>
 
-<form action="javascript:;" onsubmit="create_account()", method="POST">
+<form method="POST">
     {# This hidden_tag is a CSRF security feature. #}
     {{ form.hidden_tag() }}
 
-      {{ form.gufirst.label }} 
-      {{ form.gufirst() }}
-      
+    {{ form.gufirst.label }} 
+    {{ form.gufirst() }}
+
 
     {{ form.submit() }}
 
