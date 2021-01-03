@@ -35,16 +35,16 @@ def registerFP():
 
 		new_food_pantry = FoodPantry(name, email, address, phone, website, password)
 		db.session.add(new_food_pantry)
-		db.session.commit()	
+		db.session.commit()
 
-		return redirect(url_for('FPeditprofile'))		
+		return redirect(url_for('FPeditprofile'))
 
 	return render_template('registerFP.html', form = form)
 
 
 @user_app.route('/registerGU')
 def registerGU():
-	FlaskForm = AddUser()
+	form = AddUser()
 
 	if form.validate_on_submit():
 		first = form.gufirst.data
@@ -52,13 +52,13 @@ def registerGU():
 		email = form.guemail.data
 		state = form.state.data
 		zipcode = form.zipcode.data
-		password = generate_password_hash(form.password.data) 
+		password = generate_password_hash(form.password.data)
 
 		new_user = User(first, last, email, state, zipcode, password)
 		db.session.add(new_user)
-		db.session.commit()	
+		db.session.commit()
 
-		return redirect(url_for('GUeditprofile'))	
+		return redirect(url_for('GUeditprofile'))
 
 	return render_template('registerGU.html', form = form)
 
@@ -72,9 +72,9 @@ def GUeditprofile():
 
 @user_app.route('/FPeditprofile')
 def FPeditprofile():
-	return render_template('FPeditprofile.html', form = form)	
+	return render_template('FPeditprofile.html', form = form)
 
 
-@user_app.route('/profile')	
+@user_app.route('/profile')
 def profile():
 	return render_template('profile.html')

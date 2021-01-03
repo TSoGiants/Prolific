@@ -8,19 +8,29 @@
     {{ form.hidden_tag() }}
 
 
-    {{ form.gufirst.label }} 
-    {{ form.gufirst() }}
-
     {{ form.gufirst.label }}
-    {{ form.gufirst(), class="form-control" }}
+    {{ form.gufirst(class= "form-control") }}
+
+    {{ form.gulast.label }}
+    {{ form.gulast(class= "form-control") }}
+
+    {{ form.guemail.label }}
+    {{ form.guemail(class= "form-control") }}
+
+    {{ form.state.label }}
+    {{ form.state(class= "form-control") }}
+
+    {{ form.zipcode.label }}
+    {{ form.zipcode(class= "form-control") }}
+
+    {{ form.guconfirm.label }}
+    {{ form.guconfirm(class= "form-control") }}
 
 
 
     {{ form.submit() }}
 
 {% endblock %}
-{%extends "base.html"%}
-{%block content%}
 <h1>General User Registration</h1>
 <br></br>
 <form method="post">
@@ -55,4 +65,3 @@
   <br></br>
 </form>
 <button type="button" class="btn btn-primary btn-lg btn-block">Sign Up</button>
-{% endblock %}

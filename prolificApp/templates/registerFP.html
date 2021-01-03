@@ -6,7 +6,7 @@
     {{ form.hidden_tag() }}
 
 
-    {{ form.fpname.label }} 
+    {{ form.fpname.label }}
     {{ form.fpname() }}
 
 
@@ -16,8 +16,6 @@
 
     {{ form.submit() }}
 {% endblock %}
-{%extends "base.html"%}
-{%block content%}
 <h1>Food Pantry Registration</h1>
 <br></br>
 <form method="post">
@@ -52,4 +50,3 @@
   <br></br>
 </form>
 <button type="button" class="btn btn-primary btn-lg btn-block">Sign Up</button>
-{% endblock %}
