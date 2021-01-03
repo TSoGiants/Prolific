@@ -6,6 +6,8 @@ import os
 from prolificApp.user.models import FoodPantries, Clients
 from prolificApp import db,app
 from werkzeug.security import generate_password_hash
+from prolificApp.user.GU-registration-form import AddUser
+from prolificApp.user.FP-registration-form import AddFoodPantry
 
 user_app = Blueprint('Users', __name__)
 
@@ -63,12 +65,12 @@ def registerGU():
 
 @user_app.route('/GUeditprofile')
 def GUeditprofile():
-	return render_template('GUeditprofile.html')
+	return render_template('GUeditprofile.html', form = form)
 
 
 @user_app.route('/FPeditprofile')
 def FPeditprofile():
-	return render_template('FPeditprofile.html')	
+	return render_template('FPeditprofile.html' form = form)	
 
 
 @user_app.route('/profile')	
