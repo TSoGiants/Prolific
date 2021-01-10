@@ -130,7 +130,7 @@ dmypy.json
 
 #config.py
 #prolificApp/config.py
-prolificApp/configs/
+configs/
 
 # sass stuff
 prolificApp/static/styles/main.scss.css
