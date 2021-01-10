@@ -1,4 +1,7 @@
-from prolificApp import db
+from prolificApp import db,login_manager
+from flask_login import UserMixin
+from werkzeug.security import generate_password_hash,check_password_hash
+
 
 #connects clients table to food pantry table
 serves = db.Table('serves',
