@@ -29,7 +29,7 @@ def registerFP():
 	if form.validate_on_submit():
 		name = form.fpname.data
 		email = form.fpemail.data
-		address  = form.fpadress.data
+		address  = form.fpaddress.data
 		phone = form.fpphone.data
 		website = form.fpwebsite.data
 		password = generate_password_hash(form.fppassword.data)

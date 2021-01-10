@@ -11,7 +11,7 @@ class AddFoodPantry(FlaskForm):
 #text in quotes is the label for the input box
     fpname = StringField('Food Pantry Name')
     fpemail = StringField("Food Pantry's Email")
-    fpadress = StringField('Address')
+    fpaddress = StringField('Address')
     fpphone = StringField("Food Pantry's Phone Number")
     fpwebsite = StringField("Food Pantry's Website")
     fppassword = StringField('Password')
