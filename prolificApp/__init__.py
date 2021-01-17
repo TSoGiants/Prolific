@@ -2,7 +2,7 @@ from flask import Flask
 from sassutils.wsgi import SassMiddleware
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from prolificApp.config import db_uri
+from prolificApp.configs.config import db_uri
 
 app = Flask(__name__)
 db = SQLAlchemy(app)
