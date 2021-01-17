@@ -27,7 +27,7 @@ class FoodPantries(db.Model):#, UserMixin):
 
 	def __init__(self, foodPantryName, FPemail, FPaddress, FPphone, FPwebsite, timings, infoBring, bio, FPpassword ):
 		self.foodPantryName = foodPantryName
-		self.FPemail = FPemail 
+		self.FPemail = FPemail
 		self.FPaddress = FPaddress
 		self.FPphone = FPphone
 		self.FPwebsite = FPwebsite
@@ -43,7 +43,6 @@ class FoodPantries(db.Model):#, UserMixin):
 		return f"The name of the food pantry is {self.foodPantryName}"
 
 
-#set up client info database 
 class Clients(db.Model):#, UserMixin):
 	clients_id = db.Column(db.Integer, primary_key=True)
 	firstName = db.Column(db.Text)
@@ -58,12 +57,12 @@ class Clients(db.Model):#, UserMixin):
 		self.lastName = lastName
 		self.GUemail = GUemail
 		self.GUstate = GUstate
-		self.GUzipcode = GUzipcode	
-		self.GUpassword = generate_password_hash(GUpassword)       
+		self.GUzipcode = GUzipcode
+		self.GUpassword = generate_password_hash(GUpassword)
 
 
 	def check_password(self,password):
-		return check_password_hash(self.password_hash,GUpassword)	
+		return check_password_hash(self.password_hash,GUpassword)
 
 	def __repr__(self):
-		return f"The client is {self.firstName} {self.lastName}" 
+		return f"The client is {self.firstName} {self.lastName}"
