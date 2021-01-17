@@ -3,6 +3,8 @@ from sassutils.wsgi import SassMiddleware
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from prolificApp.configs.config import db_uri
+from flask_login import LoginManager
+
 
 app = Flask(__name__)
 db = SQLAlchemy(app)
@@ -12,8 +14,8 @@ app.config['SECRET_KEY'] = 'mysecretkey'
 from prolificApp.user.views import user_app
 from prolificApp.foodPantry.views import foodPantry_app
 
-#login_manager = LoginManager()
-#login_manager.init_app(prolificApp)
+login_manager = LoginManager()
+login_manager.init_app(prolificApp)
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = db_uri

@@ -15,12 +15,13 @@ from flask_login import login_user,login_required,logout_user
 user_app = Blueprint('Users', __name__)
 
 #this route accepts info from form and checks database for users and anthencitates users
-@user_app.route('/GUlogin', methods= ('GET', 'POST'))
-def gulogin():
+@user_app.route('/login', methods= ('GET', 'POST'))
+def login():
 	form = guLoginForm()
 	if form.validate_on_submit():
 		user = Clients.query.filter_by(guemail=form.email.data).first()
 		if user.check_password(form.password.data) and user is not None:
+			
 			login_user(user)
 			flash('Logged in successfully.')
 
