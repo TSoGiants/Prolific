@@ -4,33 +4,33 @@
   <div class="card" style="width: 35rem;">
     <div class="card-body">
       <form method="POST">
-        {# This hidden_tag is a CSRF security feature. #}
-        {{ form.hidden_tag() }}
-        <h3 class="card-title">Food Pantry Registration</h3>
+          {# This hidden_tag is a CSRF security feature. #}
+          {{ form.hidden_tag() }}
+          <h3 class="card-title">Food Pantry Registration</h3>
 
-        {{ form.fpname.label }}
-        {{ form.fpname(class= "form-control") }}
+          {{ form.fpname.label }}
+          {{ form.fpname(class= "form-control") }}
 
-        {{ form.fpemail.label }}
-        {{ form.fpemail(class= "form-control") }}
+          {{ form.fpemail.label }}
+          {{ form.fpemail(class= "form-control") }}
 
-        {{ form.fpaddress.label }}
-        {{ form.fpaddress(class= "form-control") }}
+          {{ form.fpaddress.label }}
+          {{ form.fpaddress(class= "form-control") }}
 
-        {{ form.fpphone.label }}
-        {{ form.fpphone(class= "form-control") }}
+          {{ form.fpphone.label }}
+          {{ form.fpphone(class= "form-control") }}
 
-        {{ form.fpwebsite.label }}
-        {{ form.fpwebsite(class= "form-control") }}
+          {{ form.fpwebsite.label }}
+          {{ form.fpwebsite(class= "form-control") }}
 
-        {{ form.fppassword.label }}
-        {{ form.fppassword(class= "form-control") }}
+          {{ form.fppassword.label }}
+          {{ form.fppassword(class= "form-control") }}
 
-        {{ form.fpconfirm.label }}
-        {{ form.fpconfirm(class= "form-control") }}
+          {{ form.fpconfirm.label }}
+          {{ form.fpconfirm(class= "form-control") }}
 
 
-        {{ form.submit(class= "btn btn-primary") }}
+          {{ form.submit(class= "btn btn-primary") }}
     </div>
   </div>
 </div>
