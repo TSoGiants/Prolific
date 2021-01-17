@@ -27,7 +27,7 @@ def GUlogin():
 			flash('Logged in successfully.')
 
 	session['currently_logged_in'] = 'EMily'
-	return f"{session['currently_logged_in']}"
+	#return f"{session['currently_logged_in']}"
 	return render_template('gulogin.html', form=form)
 
 @user_app.route('/FPlogin', methods= ('GET', 'POST'))

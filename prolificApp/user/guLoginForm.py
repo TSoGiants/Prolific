@@ -7,7 +7,24 @@ from wtforms.validators import DataRequired,Email,EqualTo
 
 
 class guLoginForm(FlaskForm):
-    guemail = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    submit = SubmitField('Log In')
+	guemail = StringField('Email', validators=[DataRequired(), Email()])
+	password = PasswordField('Password', validators=[DataRequired()])
+	submit = SubmitField('Log In')
+	
+	def validate(self): #this is the method that validates the form
+		rv = FlaskForm.validate(self) #checks if the data was input
+		if not rv:
+			return False #validation didnt pass
 
+        #check if the email entered is actually in database
+		user = Clients.query.filter_by(GUemail=self.guemail.data).first()
+
+		if user: #this will be false if the above query returned nothing
+            #if it is true this code will run
+			if not check_password_hash(user.GUpassword, self.password.data): #comparing databse password with form password
+				self.password.errors.append("Incorrect email or password")
+				return False
+			return True
+		else:
+			self.password.errors.append("Incorrect email or password")
+			return False
