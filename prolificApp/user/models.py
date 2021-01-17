@@ -1,5 +1,5 @@
-from prolificApp import db,login_manager
-from flask_login import UserMixin
+from prolificApp import db#,login_manager
+#from flask_login import UserMixin
 from werkzeug.security import generate_password_hash,check_password_hash
 
 
@@ -10,7 +10,7 @@ serves = db.Table('serves',
     db.Column('clients_id', db.Integer, db.ForeignKey('clients.clients_id'))
     )
 # database set up for food pantry info
-class FoodPantries(db.Model, UserMixin):
+class FoodPantries(db.Model):#, UserMixin):
 	foodpantries_id = db.Column(db.Integer, primary_key=True)
 	foodPantryName = db.Column(db.Text)
 	FPemail = db.Column(db.String(64), unique=True,index=True)
@@ -44,7 +44,7 @@ class FoodPantries(db.Model, UserMixin):
 
 
 #set up client info database 
-class Clients(db.Model, UserMixin):
+class Clients(db.Model):#, UserMixin):
 	clients_id = db.Column(db.Integer, primary_key=True)
 	firstName = db.Column(db.Text)
 	lastName = db.Column(db.Text)

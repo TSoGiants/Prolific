@@ -3,7 +3,7 @@ from flask_wtf import FlaskForm
 from wtforms import (StringField,IntegerField,SubmitField,PasswordField,validators)
 from wtforms.validators import DataRequired,Email,EqualTo
 from wtforms import ValidationError
-
+import email_validator
 
 #creates the registration form
 class AddUser(FlaskForm):
@@ -18,7 +18,7 @@ class AddUser(FlaskForm):
 	submit = SubmitField('Sign Up')
 
 
-	    def check_email(self, field):
+	def check_email(self, field):
         # Check if not None for that user email!
-        if Clients.query.filter_by(fpemail=field.data).first():
-            raise ValidationError('Your email has been registered already!')
+		if Clients.query.filter_by(fpemail=field.data).first():
+			raise ValidationError('Your email has been registered already!')
