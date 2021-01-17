@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint, render_template, redirect,flash,abort
+from flask import Flask, Blueprint, render_template, redirect,flash,abort,session
 from flask import url_for
 from flask import send_from_directory
 from flask import request
@@ -14,9 +14,10 @@ from flask_login import login_user,login_required,logout_user
 
 user_app = Blueprint('Users', __name__)
 
+
 #this route accepts info from form and checks database for users and anthencitates users
-@user_app.route('/login', methods= ('GET', 'POST'))
-def login():
+@user_app.route('/GUlogin', methods= ('GET', 'POST'))
+def GUlogin():
 	form = guLoginForm()
 	if form.validate_on_submit():
 		user = Clients.query.filter_by(guemail=form.email.data).first()
@@ -25,7 +26,9 @@ def login():
 			login_user(user)
 			flash('Logged in successfully.')
 
-	return render_template('GUlogin.html', form=form)
+	session['currently_logged_in'] = 'EMily'
+	return f"{session['currently_logged_in']}"
+	return render_template('gulogin.html', form=form)
 
 @user_app.route('/FPlogin', methods= ('GET', 'POST'))
 def fplogin():

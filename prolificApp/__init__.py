@@ -14,8 +14,8 @@ app.config['SECRET_KEY'] = 'mysecretkey'
 from prolificApp.user.views import user_app
 from prolificApp.foodPantry.views import foodPantry_app
 
-login_manager = LoginManager()
-login_manager.init_app(prolificApp)
+#login_manager = LoginManager()
+#login_manager.init_app(app)
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
