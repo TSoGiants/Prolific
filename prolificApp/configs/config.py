@@ -1,1 +1,1 @@
-db_uri = "postgresql://postgres:saurav@localhost/FAdb"
+db_uri = "postgresql://postgres:nurudeen@localhost/FAdb"

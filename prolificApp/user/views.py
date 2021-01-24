@@ -19,15 +19,22 @@ user_app = Blueprint('Users', __name__)
 @user_app.route('/GUlogin', methods= ('GET', 'POST'))
 def GUlogin():
 	form = guLoginForm()
+	
 	if form.validate_on_submit():
-		user = Clients.query.filter_by(guemail=form.email.data).first()
-		if user.check_password(form.password.data) and user is not None:
-			
-			login_user(user)
-			flash('Logged in successfully.')
 
-	session['currently_logged_in'] = 'EMily'
-	#return f"{session['currently_logged_in']}"
+		user = Clients.query.filter_by(GUemail=form.guemail.data).first()
+		#return f"{check_password_hash(user.GUpassword, form.password.data)}"
+		#return f"{user.GUpassword} other one {generate_password_hash(form.password.data)}"
+		return f"{form.guemail.data}"
+		user = Clients.query.filter_by(guemail=form.guemail.data).first()
+		#if user.check_password(form.password.data) and user is not None:
+			
+		#	login_user(user)
+		#	flash('Logged in successfully.')
+
+		session['currently_logged_in'] = 'EMily'
+		return "Hi"
+		#return f"{session['currently_logged_in']}"
 	return render_template('gulogin.html', form=form)
 
 @user_app.route('/FPlogin', methods= ('GET', 'POST'))
@@ -59,7 +66,8 @@ def registerFP():
 		address  = form.fpaddress.data
 		phone = form.fpphone.data
 		website = form.fpwebsite.data
-		password = generate_password_hash(form.fppassword.data)
+		password = form.fppassword.data
+		#password = generate_password_hash(form.fppassword.data)
 
 		new_food_pantry = FoodPantries(name, email, address, phone, website, password)
 		db.session.add(new_food_pantry)
@@ -82,8 +90,8 @@ def registerGU():
 		email = form.guemail.data
 		state = form.state.data
 		zipcode = form.zipcode.data
-		password = generate_password_hash(form.gupassword.data)
-
+		#password = generate_password_hash(form.gupassword.data)
+		password = form.gupassword.data
 		new_user = Clients(first, last, email, state, zipcode, password)
 		db.session.add(new_user)
 		db.session.commit()

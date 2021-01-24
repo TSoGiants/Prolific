@@ -1,12 +1,13 @@
 
 {%extends "base.html"%}
 {%block content%}
-<div style= "margin-left: 30%; margin-right: 30%;">
-  <div class="card" style="width: 35rem;">
+<!--<div style= "margin-left: 30%; margin-right: 30%;">-->
+<div class = "d-flex justify-content-center" style = "transform: translateY(50%);">
+  <div class="card shadow" style="width: 35rem;">
     <div class="card-body">
     	<h3 class="card-title">Login</h3>
-		<form method="post">
-
+		<form method="POST">
+			{{ form.hidden_tag() }}
 			{{ form.guemail.label }}
         	{{ form.guemail(class= "form-control") }}
 
@@ -18,7 +19,6 @@
 			<div id="passwordHelpBlock" class="form-text">
 		  Forgot your password? <a href="/editprofile">Click here to reset your password.</a>
 			</div>
-
         	{{ form.submit(class= "btn btn-primary")}}
 
 			

@@ -5,9 +5,29 @@ $theme-colors: (
 $jumbotron-bg: #D2B48C;
 $navbar-light-color: #FFFFFF;
 $form-group-margin-bottom:25px;
+$card-border-radius: 2px;
 // sets jumbotron background
 .big-banner{
-  // background-image: url('../images/landingPageBackground.png');
-  background-size: 100%;
+  //background-image: url('../images/landingPageBackground.png');
+  background-image: url('../images/testbg.jpg');
+  background-size: 50%;
 }
+
+.jumbotron{
+	height: 100vh;
+}
+.card{
+	 //background-image: url('../images/testbg.jpg');
+	// background-size: 50%;
+}
+
+@font-face{
+	font-family: myFont;
+	//src:url('../TecoSerif-Bold.otf');
+	
+	src:url('../TextMeOne-Regular.ttf');
+}
+
+//$font-family-base:myFont;
+
 @import "../bootstrap/scss/bootstrap";
