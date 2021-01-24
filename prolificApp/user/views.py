@@ -63,11 +63,14 @@ def registerFP():
 	if form.validate_on_submit():
 		name = form.fpname.data
 		email = form.fpemail.data
-		address  = form.fpaddress.data
+		address = form.fpaddress.data
 		phone = form.fpphone.data
 		website = form.fpwebsite.data
+
 		password = form.fppassword.data
 		#password = generate_password_hash(form.fppassword.data)
+
+		
 
 		new_food_pantry = FoodPantries(name, email, address, phone, website, password)
 		db.session.add(new_food_pantry)
