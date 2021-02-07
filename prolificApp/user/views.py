@@ -66,13 +66,12 @@ def registerFP():
 		address = form.fpaddress.data
 		phone = form.fpphone.data
 		website = form.fpwebsite.data
+		timings = ''
+		infoBring = ''
+		bio = ''
 		FPpassword = form.FPpassword.data
-		info = form.info.data
-		infoBring = form.infoBring.data
 
-		#password = generate_password_hash(form.fppassword.data)
-
-		new_food_pantry = FoodPantries(name, email, address, phone, website, FPpassword, info, infoBring)
+		new_food_pantry = FoodPantries(name, email, address, phone, website,timings, infoBring, bio, FPpassword)
 		db.session.add(new_food_pantry)
 		db.session.commit()
 
