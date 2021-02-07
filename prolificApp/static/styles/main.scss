@@ -1,16 +1,16 @@
 $theme-colors: (
-  "primary": #00ff00,
+  "primary": #62b562,
   "danger": #ff4136,
 );
 $jumbotron-bg: #D2B48C;
 $navbar-light-color: #FFFFFF;
 $form-group-margin-bottom:25px;
-$card-border-radius: 2px;
+$card-border-radius: 15px;
 // sets jumbotron background
 .big-banner{
   //background-image: url('../images/landingPageBackground.png');
   background-image: url('../images/testbg.jpg');
-  background-size: 50%;
+  background-size: 100%;
 }
 
 .jumbotron{
@@ -21,7 +21,7 @@ $card-border-radius: 2px;
 	// background-size: 50%;
 }
 .navbar{
-  background-image: url(../images/testbg.jpg)
+  background-image: url(../images/whiteBG.jpg)
 }
 
 @font-face{

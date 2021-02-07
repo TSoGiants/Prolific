@@ -1,0 +1,42 @@
+.maincard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #ffffff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 2px; }
+
+  .maincard > hr {
+    margin-right: 0;
+    margin-left: 0; }
+  .maincard > .list-group {
+    border-top: inherit;
+    border-bottom: inherit; }
+    .maincard > .list-group:first-child {
+      border-top-width: 0;
+      border-top-left-radius: 1px;
+      border-top-right-radius: 1px; }
+    .maincard > .list-group:last-child {
+      border-bottom-width: 0;
+      border-bottom-right-radius: 1px;
+      border-bottom-left-radius: 1px; }
+  .maincard > .card-header + .list-group,
+  .maincard > .list-group + .card-footer {
+    border-top: 0; }
+
+  .homecard1{
+    margin-left: 9%;
+  }
+  .homecard2{
+    margin-right: 10%;
+  }
+
+  .center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }

@@ -4,9 +4,11 @@
   <div class="card" style="width: 35rem;">
     <div class="card-body">
       <form method="POST">
+        <img class="center" src= "{{ url_for('static',filename='images/foodaccessLogo.svg') }}" width="70" height="50" alt="food access logo" loading="lazy">
+        <br>
           {# This hidden_tag is a CSRF security feature. #}
           {{ form.hidden_tag() }}
-          <h3 class="card-title">Food Pantry Registration</h3>
+          <h3 class="card-title"><b>‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎Food Pantry Registration</b></h3>
 
           {{ form.fpname.label }}
           {{ form.fpname(class= "form-control") }}
@@ -29,6 +31,7 @@
           {{ form.fpconfirm.label }}
           {{ form.fpconfirm(class= "form-control") }}
 
+          <br>
 
           {{ form.submit(class= "btn btn-primary") }}
     </div>
