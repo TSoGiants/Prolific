@@ -16,6 +16,7 @@ class AddFoodPantry(FlaskForm):
     fppassword = PasswordField('Password', validators = [DataRequired(),EqualTo("fpconfirm",message='Passwords must match!')])
     fpconfirm = PasswordField('Confirm Password', validators = [DataRequired()])
     submit = SubmitField('Sign Up')
+    
 
     def check_email(self, field):
         # Check if not None for that user email!
