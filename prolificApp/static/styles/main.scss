@@ -20,14 +20,17 @@ $card-border-radius: 2px;
 	 //background-image: url('../images/testbg.jpg');
 	// background-size: 50%;
 }
+.navbar{
+  background-image: url(../images/testbg.jpg)
+}
 
 @font-face{
 	font-family: myFont;
 	//src:url('../TecoSerif-Bold.otf');
-	
-	src:url('../TextMeOne-Regular.ttf');
+
+	src:url('../Simvoni.ttf');
 }
 
-//$font-family-base:myFont;
+$font-family-base:myFont;
 
 @import "../bootstrap/scss/bootstrap";
