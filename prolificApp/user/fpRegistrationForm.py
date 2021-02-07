@@ -13,11 +13,11 @@ class AddFoodPantry(FlaskForm):
     fpaddress = StringField('Address', validators = [DataRequired()])
     fpphone = StringField("Food Pantry's Phone Number", validators = [DataRequired()])
     fpwebsite = StringField("Food Pantry's Website")
-    fppassword = PasswordField('Password', validators = [DataRequired(),EqualTo("fpconfirm",message='Passwords must match!')])
+    FPpassword = PasswordField('Password', validators = [DataRequired(),EqualTo("fpconfirm",message='Passwords must match!')])
     fpconfirm = PasswordField('Confirm Password', validators = [DataRequired()])
     submit = SubmitField('Sign Up')
-    
-
+    info = StringField("")
+    infoBring = StringField("")
     def check_email(self, field):
         # Check if not None for that user email!
         if FoodPantries.query.filter_by(fpemail=field.data).first():

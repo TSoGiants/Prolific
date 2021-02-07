@@ -66,20 +66,18 @@ def registerFP():
 		address = form.fpaddress.data
 		phone = form.fpphone.data
 		website = form.fpwebsite.data
+		FPpassword = form.FPpassword.data
+		info = form.info.data
+		infoBring = form.infoBring.data
 
-		password = form.fppassword.data
 		#password = generate_password_hash(form.fppassword.data)
 
-		
-
-		new_food_pantry = FoodPantries(name, email, address, phone, website, password)
+		new_food_pantry = FoodPantries(name, email, address, phone, website, FPpassword, info, infoBring)
 		db.session.add(new_food_pantry)
 		db.session.commit()
 
 		flash("Your account was created successfully!")
-
 		return redirect(url_for('Users.FPeditprofile'))
-
 	return render_template('registerFP.html', form = form)
 
 
