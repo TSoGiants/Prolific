@@ -12,7 +12,7 @@ app.wsgi_app = SassMiddleware(app.wsgi_app,{'prolificApp':("static/styles", "sta
 app.config['SECRET_KEY'] = 'mysecretkey'
 
 from prolificApp.user.views import user_app
-from prolificApp.foodPantry.views import foodPantry_app
+from prolificApp.core.views import core_app
 
 #login_manager = LoginManager()
 #login_manager.init_app(app)
@@ -23,5 +23,5 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 Migrate(app,db)
 
 
-app.register_blueprint(foodPantry_app)
+app.register_blueprint(core_app)
 app.register_blueprint(user_app)
