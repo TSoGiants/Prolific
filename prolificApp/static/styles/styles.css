@@ -28,10 +28,10 @@
     border-top: 0; }
 
   .homecard1{
-    margin-left: 9%;
+    margin-left: 7%;
   }
   .homecard2{
-    margin-right: 10%;
+    margin-right: 9%;
   }
 
   .center{
@@ -39,4 +39,8 @@
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+  }
+  .big-banner2{
+    background-image: url('../images/foodBG.jfif');
+    background-size: 100%;
   }

@@ -1,40 +1,40 @@
-{%extends "base.html"%}
-{%block content%}
-<div style= "margin-left: 30%; margin-right: 30%;">
-  <div class="card" style="width: 35rem;">
-    <div class="card-body">
-      <form method="POST">
-        <img class="center" src= "{{ url_for('static',filename='images/foodaccessLogo.svg') }}" width="70" height="50" alt="food access logo" loading="lazy">
-        <br>
-          {# This hidden_tag is a CSRF security feature. #}
-          {{ form.hidden_tag() }}
-          <h3 class="card-title"><b>‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎Food Pantry Registration</b></h3>
+{%extends "base2.html"%}
+{%block content2%}
+    <div style= "margin-left: 30%; margin-right: 30%;">
+      <div class="card" style="width: 35rem;">
+        <div class="card-body">
+          <form method="POST">
+            <img class="center" src= "{{ url_for('static',filename='images/foodaccessLogo.svg') }}" width="70" height="50" alt="food access logo" loading="lazy">
+            <br>
+              {# This hidden_tag is a CSRF security feature. #}
+              {{ form.hidden_tag() }}
+              <h3 style="text-align:center;" class="card-title"><b>Food Pantry Registration</b></h3>
 
-          {{ form.fpname.label }}
-          {{ form.fpname(class= "form-control") }}
+              {{ form.fpname.label }}
+              {{ form.fpname(class= "form-control") }}
 
-          {{ form.fpemail.label }}
-          {{ form.fpemail(class= "form-control") }}
+              {{ form.fpemail.label }}
+              {{ form.fpemail(class= "form-control") }}
 
-          {{ form.fpaddress.label }}
-          {{ form.fpaddress(class= "form-control") }}
+              {{ form.fpaddress.label }}
+              {{ form.fpaddress(class= "form-control") }}
 
-          {{ form.fpphone.label }}
-          {{ form.fpphone(class= "form-control") }}
+              {{ form.fpphone.label }}
+              {{ form.fpphone(class= "form-control") }}
 
-          {{ form.fpwebsite.label }}
-          {{ form.fpwebsite(class= "form-control") }}
+              {{ form.fpwebsite.label }}
+              {{ form.fpwebsite(class= "form-control") }}
 
-          {{ form.FPpassword.label }}
-          {{ form.FPpassword(class= "form-control") }}
+              {{ form.FPpassword.label }}
+              {{ form.FPpassword(class= "form-control") }}
 
-          {{ form.fpconfirm.label }}
-          {{ form.fpconfirm(class= "form-control") }}
+              {{ form.fpconfirm.label }}
+              {{ form.fpconfirm(class= "form-control") }}
 
-          <br>
+              <br>
 
-          {{ form.submit(class= "btn btn-primary") }}
+              {{ form.submit(class= "btn btn-primary") }}
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-{% endblock %}
+    {% endblock %}

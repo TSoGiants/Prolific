@@ -1,9 +1,9 @@
 $theme-colors: (
   "primary": #62b562,
   "danger": #ff4136,
+  "light": #ffffff,
 );
 $jumbotron-bg: #D2B48C;
-$navbar-light-color: #FFFFFF;
 $form-group-margin-bottom:25px;
 $card-border-radius: 15px;
 // sets jumbotron background
@@ -19,9 +19,6 @@ $card-border-radius: 15px;
 .card{
 	 //background-image: url('../images/testbg.jpg');
 	// background-size: 50%;
-}
-.navbar{
-  background-image: url(../images/whiteBG.jpg)
 }
 
 @font-face{

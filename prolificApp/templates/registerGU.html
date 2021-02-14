@@ -1,5 +1,5 @@
-{%extends "base.html"%}
-{%block content%}
+{%extends "base2.html"%}
+{%block content2%}
 <div style= "margin-left: 30%; margin-right: 30%;">
   <div class="card" style="width: 35rem;">
     <div class="card-body">
@@ -8,7 +8,7 @@
         <br>
           {# This hidden_tag is a CSRF security feature. #}
           {{ form.hidden_tag() }}
-          <h3 class="card-title"><b>‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏ ‏‎‎‏‏General User Registration</b></h3>
+          <h3 style="text-align:center;" class="card-title"><b>‏‏‎‏‎‎‏‏General User Registration</b></h3>
           {# This hidden_tag is a CSRF security feature. #}
           {{ form.hidden_tag() }}
 
@@ -42,37 +42,3 @@
   </div>
 </div>
 {% endblock %}
-<h1>General User Registration</h1>
-<br></br>
-<form method="post">
-  <div class="firstname">
-    <label for="fname">First name</label>
-    <input type="text" class="form-control" id="fname" name="fname" placeholder="John">
-  </div>
-  <div class="lastname">
-    <label for="lname">Last name</label>
-    <input type="text" class="form-control" id="lname" name="lname" placeholder="Smith">
-  </div>
-   <div class="state">
-    <label for="state">State</label><!--should probably change to dropdown input-->
-    <input type="" class="form-control" id="" name="">
-  </div>
-   <div class="zipcode">
-    <label for="confpassword">Zipcode</label>
-      <input type="number" class="form-control" id="zipcode" name="zipcode">
-  </div>
-  <div class="email">
-    <label for="email">Email address</label>
-    <input type="email" class="form-control" id="email" name="email" placeholder="john.smith@example.com">
-  </div>
-  <div class="password">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" name="password" id="password">
-  </div>
-  <div class="confpassword">
-    <label for="confpassword">Confirm Password</label>
-    <input type="password" class="form-control" id="confpassword" name="confpassword">
-  </div>
-  <br></br>
-</form>
-<button type="button" class="btn btn-primary btn-lg btn-block">Sign Up</button>
