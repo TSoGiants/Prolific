@@ -41,6 +41,13 @@
     width: 50%;
   }
   .big-banner2{
-    background-image: url('../images/foodBG.jfif');
-    background-size: 100%;
+    background-image: url('../images/foodBG.jfif') ;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  .wrapper{
+    width: 80%;
+    margin: 0 auto;
   }
