@@ -1,44 +1,42 @@
 {%extends "base2.html"%}
 {%block content2%}
-  <div class="wrapper">
-    <div class="card wrapper" style="width: 35rem;">
-      <div class="card-body">
-        <form method="POST">
-          <img class="center" src= "{{ url_for('static',filename='images/foodaccessLogo.svg') }}" width="70" height="50" alt="food access logo" loading="lazy">
+<div class="wrapper">
+  <div class="card wrapper" style="width: 35rem;">
+    <div class="card-body">
+      <form method="POST">
+        <img class="center" src= "{{ url_for('static',filename='images/foodaccessLogo.svg') }}" width="70" height="50" alt="food access logo" loading="lazy">
+        <br>
+          {# This hidden_tag is a CSRF security feature. #}
+          {{ form.hidden_tag() }}
+          <h3 style="text-align:center;" class="card-title"><b>‏‏‎‏‎‎‏‏General User Registration</b></h3>
+
+          {{ form.gufirst.label }}
+          {{ form.gufirst(class= "form-control") }}
+
+          {{ form.gulast.label }}
+          {{ form.gulast(class= "form-control") }}
+
+          {{ form.guemail.label }}
+          {{ form.guemail(class= "form-control") }}
+
+          {{ form.state.label }}
+          {{ form.state(class= "form-control") }}
+
+          {{ form.zipcode.label }}
+          {{ form.zipcode(class= "form-control") }}
+
+          {{ form.gupassword.label }}
+          {{ form.gupassword(class= "form-control") }}
+
+          {{ form.guconfirm.label }}
+          {{ form.guconfirm(class= "form-control") }}
           <br>
-            {# This hidden_tag is a CSRF security feature. #}
-            {{ form.hidden_tag() }}
-            <h3 style="text-align:center;" class="card-title"><b>‏‏‎‏‎‎‏‏General User Registration</b></h3>
-            {# This hidden_tag is a CSRF security feature. #}
-            {{ form.hidden_tag() }}
-
-
-            {{ form.gufirst.label }}
-            {{ form.gufirst(class= "form-control") }}
-
-            {{ form.gulast.label }}
-            {{ form.gulast(class= "form-control") }}
-
-            {{ form.guemail.label }}
-            {{ form.guemail(class= "form-control") }}
-
-            {{ form.state.label }}
-            {{ form.state(class= "form-control") }}
-
-            {{ form.zipcode.label }}
-            {{ form.zipcode(class= "form-control") }}
-
-
-            {{ form.gupassword.label }}
-            {{ form.gupassword(class= "form-control") }}
-
-            {{ form.guconfirm.label }}
-            {{ form.guconfirm(class= "form-control") }}
-
-            <br>
-
-            {{ form.submit(class= "btn btn-primary") }}
-      </div>
+          {{ form.submit(class= "btn btn-primary") }}
+          <div id="loginHelp" class="form-text"><br>
+    		  Already have an account? <a href="/login">Click here to log in.</a>
+    			</div>
     </div>
   </div>
+</div>
+
 {% endblock %}
