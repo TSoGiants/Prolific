@@ -29,9 +29,11 @@
 
   .homecard1{
     margin-left: 7%;
+    margin-top: 50px;
   }
   .homecard2{
     margin-right: 9%;
+    margin-top: 50px;
   }
 
   .center{
@@ -41,11 +43,8 @@
     width: 50%;
   }
   .big-banner2{
-    background-image: url('../images/foodBG.jfif') ;
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background-image: url('../images/foodBG.jfif');
+    background-size: 100%;
   }
   .wrapper{
     width: 80%;

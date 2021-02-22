@@ -1,26 +1,54 @@
 
-{%extends "base.html"%}
-{%block content%}
-<h1>Login</h1>
-<form method="post">
-	<div class="form-group">
-		<label for="email">Email address</label><br>
-		<input type="email" class="form-control w-25" id="email" name="email" placeholder="name@example.com" size="50%"><br>
-	</div>
+{%extends "base2.html"%}
+{%block content2%}
 
-	<div class="form-group">
-		<label for="passwrd">Password</label><br>
-		<input type="password" class="form-control w-25" id="passwrd" name="password">
-	</div>
-	<div id="passwordHelpBlock" class="form-text">
-  Forgot your password? <a href="/editprofile">Click here to reset your password.</a>
-	</div>
-<br>
-	<div class="checkbox">
-		<label><input type="checkbox"> Remember me</label><br>
-	</div>
-	<button type="submit" class="btn btn-default">Submit</button>
+<div class="wrapper">
+  <div class="card wrapper" style="width: 35rem;">
+    <div class="card-body">
+      <form method="POST">
+        <img class="center" src= "{{ url_for('static',filename='images/foodaccessLogo.svg') }}" width="70" height="50" alt="food access logo" loading="lazy">
+        <br>
+			   {{ form.hidden_tag() }}
+        <h3 style="text-align:center;" class="card-title"><b>Login</b></h3>
 
-</form>
+			    {{ form.guemail.label }}
+        	{{ form.guemail(class= "form-control") }}
+
+        	{{ form.password.label }}
+        	{{ form.password(class= "form-control") }}
+        <div class="checkbox">
+				   <label><input type="checkbox"> Remember me</label><br>
+  			</div>
+  			<div id="passwordHelpBlock" class="form-text">
+  		  Forgot your password? <a href="/editprofile">Click here to reset your password.</a>
+  			</div>
+        <div id="registerHelp" class="form-text">
+        Don't have an account yet? <a href="/index">Click here to sign up.</a>
+        </div>
+        <br>
+        	{{ form.submit(class= "btn btn-primary")}}
+
+		<!--<div class="form-group">
+				<label for="email">Email address</label><br>
+				<input type="email" class="form-control w-25" id="email" name="email" placeholder="name@example.com" size="50%"><br>
+			</div>
+
+			<div class="form-group">
+				<label for="passwrd">Password</label><br>
+				<input type="password" class="form-control w-25" id="passwrd" name="password">
+			</div>
+			<div id="passwordHelpBlock" class="form-text">
+		  Forgot your password? <a href="/editprofile">Click here to reset your password.</a>
+			</div>
+		<br>
+			<div class="checkbox">
+				<label><input type="checkbox"> Remember me</label><br>
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button>
+		-->
+
+    </div>
+  </div>
+</div>
 
 {% endblock %}

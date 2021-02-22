@@ -16,10 +16,10 @@ user_app = Blueprint('Users', __name__)
 
 
 #this route accepts info from form and checks database for users and anthencitates users
-@user_app.route('/GUlogin', methods= ('GET', 'POST'))
-def GUlogin():
+@user_app.route('/login', methods= ('GET', 'POST'))
+def login():
 	form = guLoginForm()
-	
+
 	if form.validate_on_submit():
 
 		user = Clients.query.filter_by(GUemail=form.guemail.data).first()
@@ -28,14 +28,14 @@ def GUlogin():
 		return f"{form.guemail.data}"
 		user = Clients.query.filter_by(guemail=form.guemail.data).first()
 		#if user.check_password(form.password.data) and user is not None:
-			
+
 		#	login_user(user)
 		#	flash('Logged in successfully.')
 
 		session['currently_logged_in'] = 'EMily'
 		return "Hi"
 		#return f"{session['currently_logged_in']}"
-	return render_template('gulogin.html', form=form)
+	return render_template('login.html', form=form)
 
 @user_app.route('/FPlogin', methods= ('GET', 'POST'))
 def fplogin():
