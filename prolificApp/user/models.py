@@ -14,7 +14,10 @@ class FoodPantries(db.Model):#, UserMixin):
 	foodpantries_id = db.Column(db.Integer, primary_key=True)
 	foodPantryName = db.Column(db.Text)
 	FPemail = db.Column(db.String(64), unique=True,index=True)
-	FPaddress = db.Column(db.Text)
+	FPstreet = db.Column(db.Text)
+	FPcity = db.Column(db.Text)
+	FPstate = db.Column(db.Text)
+	FPzipcode = db.Column(db.Text)
 	FPphone = db.Column(db.Text)
 	FPwebsite = db.Column(db.Text)
 	timings = db.Column(db.Text)
@@ -25,12 +28,16 @@ class FoodPantries(db.Model):#, UserMixin):
 
 	serves = db.relationship('Clients', secondary=serves, backref= db.backref('statesServed', lazy = 'dynamic') )
 
-	def __init__(self, foodPantryName, FPemail, FPaddress, FPphone, FPwebsite, timings, infoBring, bio, FPpassword ):
+	def __init__(self, foodPantryName, FPemail, FPstreet, FPcity, FPstate, FPzipcode, FPphone, FPwebsite, timings, infoBring, bio, FPpassword ):
 		self.foodPantryName = foodPantryName
 		self.FPemail = FPemail 
-		self.FPaddress = FPaddress
+		self.FPstreet = FPstreet
+
 		self.FPphone = FPphone
 		self.FPwebsite = FPwebsite
+		self.FPcity = FPcity
+		self.FPstate = FPstate
+		self.FPzipcode = FPzipcode
 		self.timings = timings
 		self.infoBring = infoBring
 		self.bio = bio
