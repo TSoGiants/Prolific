@@ -4,6 +4,7 @@ from flask import send_from_directory
 from flask import request
 import os
 from prolificApp.user.models import FoodPantries, Clients
+from prolificApp.core import searchForm
 from prolificApp import db,app
 from werkzeug.security import generate_password_hash
 
@@ -25,6 +26,17 @@ def about():
 @core_app.route('/directory')
 def directory():
 
+	currentstate = States.query.get(3)
+	if request.method == 'POST':
+		fpsearch = request.form["foodpantries"]
+		ssearch = request.form["FPstate"]
+		zsearch = request.form['FPzipcode']
+		statesearch = FoodPantries.query.filter_by(FPstate= ssearch).first().serves
+		zipsearch = FoodPantries.query.filter_by(FPzipcode= zsearch).first().serves
+		pantrysearch = FoodPantries.query.filter_by(foodPantryName= fpsearch).first().serves
+
+		return render_template('directory.html', statesearch=statesearch, zipsearch = zipsearch, pantrysearch= pantrysearch)	
+	
 	return render_template('Directory.html')
 #creates endpoint for the directory webpage
 
@@ -34,21 +46,3 @@ def fpProfile():
 
 #creates endpoint for the food pantry profile page webpage
 
-''' 	#allData = Lawfirms.query.all()
-	#return f"{allData}"
-
-	#currentstate = States.query.filter_by(states= "Texas").first_or_404()
-	#for x in currentstate:
-		#return f"{x.states}"
-	currentstate = States.query.get(3)
-	#return f"{currentstate}"
-	#test = currentstate.stateServed()
-	#return f'{test}' 
-	if request.method == 'POST':
-		lfsearch = request.form["lawfirm"]
-		ssearch = request.form["state"]
-		#currentstate = States.query.filter_by(states= eachstate).first()
-		statesearch = States.query.filter_by(states= ssearch).first().statesServed
-		#statesearch = statesearch.statesServed
-		#return redirect(url_for('Lawyer_Network.results', statesearch=statesearch))
-		return render_template('directory.html', statesearch=statesearch)

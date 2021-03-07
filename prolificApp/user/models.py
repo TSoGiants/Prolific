@@ -32,12 +32,11 @@ class FoodPantries(db.Model):#, UserMixin):
 		self.foodPantryName = foodPantryName
 		self.FPemail = FPemail 
 		self.FPstreet = FPstreet
-
-		self.FPphone = FPphone
-		self.FPwebsite = FPwebsite
 		self.FPcity = FPcity
 		self.FPstate = FPstate
 		self.FPzipcode = FPzipcode
+		self.FPphone = FPphone
+		self.FPwebsite = FPwebsite
 		self.timings = timings
 		self.infoBring = infoBring
 		self.bio = bio
