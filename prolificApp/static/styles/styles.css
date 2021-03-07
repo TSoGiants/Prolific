@@ -50,3 +50,68 @@
     width: 80%;
     margin: 0 auto;
   }
+/*directory.html*/
+.searchdiv1{
+  float: left;
+
+}
+.submitdiv2{
+  float:right;
+.test
+{
+  background-color: red;
+}
+.card{
+  width:900px ;
+  margin: 0 auto;
+ }
+.secolumn{
+width:450px;
+float:right;
+overflow:hidden;
+}
+.fircolumn{
+width:450px;
+float:left;
+overflow:hidden;
+}
+.buttons{ /*holds the buttons on the content card*/
+
+width:900px;
+height:15%;
+margin: 0 auto;
+display: flex;
+align-items: center;
+justify-content: center;
+overflow:hidden;
+
+}
+.separater{
+
+  width: 900px;
+  height: 85%;
+  margin: 0 auto;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+  overflow:hidden;
+}
+.btn{
+
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.more{ /* button for See more contact information*/
+  height: 10px;
+}
+.searchdiv1{
+  float: left;
+
+}
+.submitdiv2{
+  float:right;
+
+}
+.picdiv{
+  float:right;
+}

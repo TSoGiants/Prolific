@@ -1,0 +1,55 @@
+<!--{%extends "base.html"%}-->
+<!--{%block content%}-->
+
+<nav class="navbar navbar-light bg-light">
+  <form class="form-inline" method = "post">
+
+            
+    <div class= "searchdiv1" >
+    <input class="form-control mr-sm-2" type="search" name = "Food Pantry" placeholder="Food Pantry" aria-label="Food Pantry">
+    <input class="form-control mr-sm-2" type="search" name = "state" placeholder="Capitalized State Name" aria-label="State">
+   <input class="form-control mr-sm-2" type="search" name = "zipcode" placeholder="zipcode" aria-label="zipcode">
+  </div>
+
+          
+ <form class="form-inline my-2 my-lg-0">
+      <div class= "submitdiv2"> 
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+{%for result in statesearch, fpsearch, zipsearch %}
+
+ <!--card to display results-->
+    
+<div class="card">
+       <div class="card-body">
+          <h3 class="card-title">{{result.foodPantryName}}</h3>      
+          <div class= separater><!--space between info and buttons -->
+
+            <div class= fircolumn>
+              
+              <p></p><!--spacer-->
+             <h6>{{result.foodPantryName}}</h6>
+              <h6>{{result.foodPantryName}}</h6>
+             <h6>{{result.foodPantryName}}</h6>
+             
+             <p></p><!--spacer-->
+          </div>
+
+          <div class= secolumn> 
+           <h4>{{result.foodPantryName}}</h4>
+           <p>{{result.foodPantryName}}</p>
+          </div>
+        </div>
+        
+
+          
+        </div>
+          </div>
+      
+  </div>       
+          
+{%endfor%}   
+
+
+<!--{% endblock %}-->
