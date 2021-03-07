@@ -59,7 +59,7 @@
   	<option value = "Alabama">Alabama</option>
  </div>
 
-
+sdfffd
 
 {%for result in statesearch, fpsearch, zipsearch %}
 
@@ -67,40 +67,7 @@
     
           
           
-       
+{%endfor%}   
 
-<!--Example code for card to display results-->             
-
-<!--
- 	format = {{result.info in database(name of column in models.py)}}
-      <div class="card">
-       <div class="card-body">
-          <h3 class="card-title">{{result.lawFirmName}}</h3>      
-          <div class= separater>
-
-            <div class= fircolumn> separater
-              <a href="{{ url_for('Lawyer_Network.claim') }}"class="more" class="btn btn-outline-primary1">Claim Profile</a>
-              <p></p>
-             <h6>{{result.genPhone}}</h6>
-              <h6>{{result.address}}</h6>
-             <h6>{{result.phone}}</h6>
-              <a href="{{ url_for('Lawyer_Network.lprofile', lawfirm_id = result.lawfirm_id) }}"class="more" class="btn btn-outline-primary1">See more contact information</a>
-             <p></p> spacer
-          </div>
-
-          <div class= secolumn> separater
-           <h4>{{result.state}}</h4>
-           <p>{{result.specialities}}</p>
-          </div>
-        </div>
-        
-          <div class= buttons>
-          <a href="{{result.website}}" class="btn btn-primary">View Website</a>
-          <a href="{{result.contactLink}}" class="btn btn-primary">Email</a>
-
-          <a href="{{ url_for('Lawyer_Network.lprofile', lawfirm_id = result.lawfirm_id) }}" class="btn btn-primary">View Profile</a>
-        </div>
-          </div>-->
-      
 
 {% endblock %}

@@ -26,7 +26,7 @@ def about():
 @core_app.route('/directory')
 def directory():
 
-	currentstate = States.query.get(3)
+	currentstate = FoodPantries.query.get(3)
 	if request.method == 'POST':
 		fpsearch = request.form["foodpantries"]
 		ssearch = request.form["FPstate"]
@@ -35,7 +35,7 @@ def directory():
 		zipsearch = FoodPantries.query.filter_by(FPzipcode= zsearch).first().serves
 		pantrysearch = FoodPantries.query.filter_by(foodPantryName= fpsearch).first().serves
 
-		return render_template('directory.html', statesearch=statesearch, zipsearch = zipsearch, pantrysearch= pantrysearch)	
+		return render_template('Directory.html', statesearch=statesearch, zipsearch = zipsearch, pantrysearch= pantrysearch)	
 	
 	return render_template('Directory.html')
 #creates endpoint for the directory webpage
