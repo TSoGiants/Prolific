@@ -50,3 +50,10 @@
     width: 80%;
     margin: 0 auto;
   }
+
+  .bgcard{
+    border-radius: 0px;
+  }
+  .bgimage{
+    position: relative;
+  }
