@@ -26,7 +26,7 @@ class FoodPantries(db.Model):#, UserMixin):
 	FPpassword = db.Column(db.Text)
 
 
-	serves = db.relationship('Clients', secondary=serves, backref= db.backref('statesServed', lazy = 'dynamic') )
+	serves = db.relationship('Clients', secondary=serves, backref= db.backref('serves', lazy = 'dynamic') )
 
 	def __init__(self, foodPantryName, FPemail, FPstreet, FPcity, FPstate, FPzipcode, FPphone, FPwebsite, timings, infoBring, bio, FPpassword ):
 		self.foodPantryName = foodPantryName
