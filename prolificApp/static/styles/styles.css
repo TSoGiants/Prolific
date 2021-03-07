@@ -50,7 +50,8 @@
     width: 80%;
     margin: 0 auto;
   }
-/*directory.html*/
+
+/*directory2.html*/
 .searchdiv1{
   float: left;
 
@@ -115,3 +116,11 @@ overflow:hidden;
 .picdiv{
   float:right;
 }
+
+  .bgcard{
+    border-radius: 0px;
+  }
+  .bgimage{
+    position: relative;
+  }
+

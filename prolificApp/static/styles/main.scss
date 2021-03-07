@@ -14,19 +14,21 @@ $card-border-radius: 15px;
   height: 100vh;
 }
 
-
-.card{
-	 //background-image: url('../images/testbg.jpg');
-	// background-size: 50%;
-}
-
 @font-face{
 	font-family: myFont;
-	//src:url('../TecoSerif-Bold.otf');
-
 	src:url('../Simvoni.ttf');
 }
 
 $font-family-base:myFont;
+
+.card-img-overlay{
+  background-color: #28292d;
+  position: relative;
+  width: 50%;
+  height: 50%;
+  margin-top: 2.5%;
+  margin-left: 2.5%;
+  opacity: 0.75;
+}
 
 @import "../bootstrap/scss/bootstrap";
