@@ -15,6 +15,13 @@
 
           {{ form.fpemail.label }}
           {{ form.fpemail(class= "form-control") }}
+          {% if form.fpemail.errors %}
+            <ul class="text-danger">
+            {% for error in form.fpemail.errors %}
+              <li>{{ error }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
 
           {{ form.fpstreet.label }}
           {{ form.fpstreet(class= "form-control") }}
@@ -36,6 +43,13 @@
 
           {{ form.FPpassword.label }}
           {{ form.FPpassword(class= "form-control") }}
+          {% if form.FPpassword.errors %}
+            <ul class="text-danger">
+            {% for error in form.FPpassword.errors %}
+              <li>{{ error }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
 
           {{ form.fpconfirm.label }}
           {{ form.fpconfirm(class= "form-control") }}

@@ -1,8 +1,8 @@
 from flask import Flask, render_template, session, redirect, url_for, session, flash
 from flask_wtf import FlaskForm
 from wtforms import (StringField,SubmitField,PasswordField,validators,SelectField)
-from wtforms.validators import DataRequired,Email,EqualTo
-
+from wtforms.validators import DataRequired,Email,EqualTo,ValidationError
+from prolificApp.user.models import FoodPantries
 
 
 class AddFoodPantry(FlaskForm):
@@ -20,7 +20,9 @@ class AddFoodPantry(FlaskForm):
     fpconfirm = PasswordField('Confirm Password', validators = [DataRequired()])
     submit = SubmitField('Sign Up')
 
-    def check_email(self, field):
+    def validate_fpemail(self, field):
         # Check if not None for that user email!
-        if FoodPantries.query.filter_by(fpemail=field.data).first():
+        foodPantry =  FoodPantries.query.filter_by(FPemail=field.data).first()
+        if foodPantry is not None:
             raise ValidationError('Your email has been registered already!')
+            

@@ -23,7 +23,7 @@
   		  Forgot your password? <a href="/editprofile">Click here to reset your password.</a>
   			</div>
         <div id="registerHelp" class="form-text">
-        Don't have an account yet? <a href="/index">Click here to sign up.</a>
+        Don't have an account yet? <a href="{{ url_for('Users.registerGU') }}">Click here to sign up.</a>
         </div>
         <br>
         	{{ form.submit(class= "btn btn-primary")}}

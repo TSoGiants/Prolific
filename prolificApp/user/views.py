@@ -3,7 +3,7 @@ from flask import url_for
 from flask import send_from_directory
 from flask import request
 import os
-from prolificApp.user.models import FoodPantries, Clients
+from prolificApp.user.models import FoodPantries, Clients, States
 from prolificApp import db,app
 from werkzeug.security import generate_password_hash,check_password_hash
 from prolificApp.user.guRegistrationForm import AddUser
@@ -21,19 +21,16 @@ def login():
 	form = guLoginForm()
 
 	if form.validate_on_submit():
-
-		user = Clients.query.filter_by(GUemail=form.guemail.data).first()
+		currentUser = Clients.query.filter_by(GUemail=form.guemail.data).first()
 		#return f"{check_password_hash(user.GUpassword, form.password.data)}"
 		#return f"{user.GUpassword} other one {generate_password_hash(form.password.data)}"
-		return f"{form.guemail.data}"
-		user = Clients.query.filter_by(guemail=form.guemail.data).first()
+		#return f"{form.guemail.data}"
 		#if user.check_password(form.password.data) and user is not None:
 
 		#	login_user(user)
 		#	flash('Logged in successfully.')
-
-		session['currently_logged_in'] = 'EMily'
-		return "Hi"
+		session["currentUser"] = currentUser.clients_id
+		return f"Hii {currentUser.firstName}"
 		#return f"{session['currently_logged_in']}"
 	return render_template('login.html', form=form)
 
@@ -61,9 +58,13 @@ def registerFP():
 	form = AddFoodPantry()
 
 	if form.validate_on_submit():
+		return "Hi"
 		name = form.fpname.data
 		email = form.fpemail.data
-		address = form.fpaddress.data
+		street = form.fpstreet.data 
+		city = form.fpcity.data
+		state = form.fpstate.data
+		zipcode = form.fpzipcode.data
 		phone = form.fpphone.data
 		website = form.fpwebsite.data
 		timings = ''
@@ -71,9 +72,17 @@ def registerFP():
 		bio = ''
 		FPpassword = form.FPpassword.data
 
-		new_food_pantry = FoodPantries(name, email, address, phone, website,timings, infoBring, bio, FPpassword)
+		new_food_pantry = FoodPantries(name, email, street, city, zipcode, phone, website,timings, infoBring, bio, FPpassword)
 		db.session.add(new_food_pantry)
 		db.session.commit()
+
+		##add the states association
+		currentFP = FoodPantries.query.filter_by(FPemail = email).first()
+		#return f"{currentFP.FPemail}"
+		currentState = States.query.filter_by(states= state).first() #search the states table for the state that was just entered
+		if currentState != None:
+			currentState.statesServed.append(currentFP)
+			db.session.commit()
 
 		flash("Your account was created successfully!")
 		return redirect(url_for('Users.FPeditprofile'))
@@ -92,9 +101,13 @@ def registerGU():
 		zipcode = form.zipcode.data
 		#password = generate_password_hash(form.gupassword.data)
 		password = form.gupassword.data
-		new_user = Clients(first, last, email, state, zipcode, password)
+		new_user = Clients(first, last, email, zipcode,state, password)
 		db.session.add(new_user)
 		db.session.commit()
+
+		#store who is logged in in the session object
+		session["currentUser"] = Clients.query.filter_by(GUemail = email).first().clients_id
+
 
 		return redirect(url_for('Users.GUeditprofile'))
 

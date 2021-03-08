@@ -4,10 +4,10 @@ from werkzeug.security import generate_password_hash,check_password_hash
 
 
 
-#connects clients table to food pantry table
+#connects states table to food pantry table
 serves = db.Table('serves',
 	db.Column('foodpantries_id', db.Integer, db.ForeignKey('food_pantries.foodpantries_id')),
-    db.Column('clients_id', db.Integer, db.ForeignKey('clients.clients_id'))
+    db.Column('state_id', db.Integer, db.ForeignKey('states.state_id'))
     )
 # database set up for food pantry info
 class FoodPantries(db.Model):#, UserMixin):
@@ -16,7 +16,6 @@ class FoodPantries(db.Model):#, UserMixin):
 	FPemail = db.Column(db.String(64), unique=True,index=True)
 	FPstreet = db.Column(db.Text)
 	FPcity = db.Column(db.Text)
-	FPstate = db.Column(db.Text)
 	FPzipcode = db.Column(db.Text)
 	FPphone = db.Column(db.Text)
 	FPwebsite = db.Column(db.Text)
@@ -25,15 +24,15 @@ class FoodPantries(db.Model):#, UserMixin):
 	bio =db.Column(db.Text)
 	FPpassword = db.Column(db.Text)
 
+	FPstate = db.relationship('States', secondary=serves, backref= db.backref('statesServed', lazy = 'dynamic') )
+	#serves = db.relationship('States', secondary=serves, backref= db.backref('statesServed', lazy = 'dynamic') )
 
-	serves = db.relationship('Clients', secondary=serves, backref= db.backref('serves', lazy = 'dynamic') )
-
-	def __init__(self, foodPantryName, FPemail, FPstreet, FPcity, FPstate, FPzipcode, FPphone, FPwebsite, timings, infoBring, bio, FPpassword ):
+	def __init__(self, foodPantryName, FPemail, FPstreet, FPcity, FPzipcode, FPphone, FPwebsite, timings, infoBring, bio, FPpassword ):
 		self.foodPantryName = foodPantryName
 		self.FPemail = FPemail 
 		self.FPstreet = FPstreet
 		self.FPcity = FPcity
-		self.FPstate = FPstate
+		#self.FPstate = FPstate
 		self.FPzipcode = FPzipcode
 		self.FPphone = FPphone
 		self.FPwebsite = FPwebsite
@@ -73,3 +72,13 @@ class Clients(db.Model):#, UserMixin):
 
 	def __repr__(self):
 		return f"The client is {self.firstName} {self.lastName}" 
+
+class States(db.Model):
+	state_id = db.Column(db.Integer, primary_key=True)
+	states = db.Column(db.String(20))
+
+	def __init__(self, states):
+		self.states = states
+
+	def __repr__(self):
+		return f"The state is {self.states}"  
