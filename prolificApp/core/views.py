@@ -49,8 +49,9 @@ def directory():
 
 		return render_template('Directory.html', statesearch=statesearch, zipsearch = zipsearch, pantrysearch= pantrysearch)'''
 
-	
+
 	return render_template('Directory2.html', form = form)
+
 #creates endpoint for the directory webpage
 
 @core_app.route('/food pantry profile')
