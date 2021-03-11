@@ -58,7 +58,6 @@ def registerFP():
 	form = AddFoodPantry()
 
 	if form.validate_on_submit():
-		return "Hi"
 		name = form.fpname.data
 		email = form.fpemail.data
 		street = form.fpstreet.data 
