@@ -25,7 +25,8 @@ class FoodPantries(db.Model):#, UserMixin):
 	FPpassword = db.Column(db.Text)
 
 	FPstate = db.relationship('States', secondary=serves, backref= db.backref('statesServed', lazy = 'dynamic') )
-	#serves = db.relationship('States', secondary=serves, backref= db.backref('statesServed', lazy = 'dynamic') )
+
+	#create association table called FPzipcode, delete current FPzipcode
 
 	def __init__(self, foodPantryName, FPemail, FPstreet, FPcity, FPzipcode, FPphone, FPwebsite, timings, infoBring, bio, FPpassword ):
 		self.foodPantryName = foodPantryName
@@ -82,3 +83,6 @@ class States(db.Model):
 
 	def __repr__(self):
 		return f"The state is {self.states}"  
+
+
+#create zipcode table

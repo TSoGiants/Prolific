@@ -63,7 +63,7 @@ def registerFP():
 		street = form.fpstreet.data 
 		city = form.fpcity.data
 		state = form.fpstate.data
-		zipcode = form.fpzipcode.data
+		zipcode = form.fpzipcode.data #we'll use zipcode to create entry in zipcode table
 		phone = form.fpphone.data
 		website = form.fpwebsite.data
 		timings = ''
@@ -71,7 +71,7 @@ def registerFP():
 		bio = ''
 		FPpassword = form.FPpassword.data
 
-		new_food_pantry = FoodPantries(name, email, street, city, zipcode, phone, website,timings, infoBring, bio, FPpassword)
+		new_food_pantry = FoodPantries(name, email, street, city, zipcode, phone, website,timings, infoBring, bio, FPpassword) #modify this line, remove zipcode
 		db.session.add(new_food_pantry)
 		db.session.commit()
 
