@@ -2,7 +2,14 @@
 {%block content%}
 
 {% for result in statesearch %}
-
-	<p>{{ result.foodPantryName }}</p>
+	<a href="{{url_for('Users.registerGU')}}">
+        <div class="card homecard1 shadow" style="width: 40%;">
+          <div class="card-body">
+            <h1 style="text-align:center;"><b>{{ result.foodPantryName }}</b></h1>
+            <h5 style="text-align:center;">‏‏‎{{ result.FPcity }}</h5>
+            <h5 style="text-align:center;">‏‏‎{{ result.FPstate }}</h5>
+          </div>
+        </div>
+      </a>
 {% endfor %}
 {% endblock %}
