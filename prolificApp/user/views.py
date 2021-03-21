@@ -75,6 +75,7 @@ def registerFP():
 		zipcodeFP = Zipcodes.query.filter_by(zipcode = zipcode).first()
 		if zipcodeFP == None:# If the zipcode entered by user is not in table, create zipcode entry
 			new_zipcode = Zipcodes(zipcode) 
+			db.session.add(new_zipcode)
 			db.session.commit()
 
 
@@ -90,11 +91,11 @@ def registerFP():
 			currentState.statesServed.append(currentFP)
 			db.session.commit()
 #add in zipcode association 
-		currentZipcode= Zipcodes.query.filter_by(zipcodes= zipcode).first() #search the zipcodes table for the zipcode that was just entered
+		currentZipcode= Zipcodes.query.filter_by(zipcode= zipcode).first() #search the zipcodes table for the zipcode that was just entered
 		if currentZipcode != None:
 			currentZipcode.zipcodesServed.append(currentFP)
 			db.session.commit()
-			
+
 		flash("Your account was created successfully!")
 		return redirect(url_for('Users.FPeditprofile'))
 	return render_template('registerFP.html', form = form)

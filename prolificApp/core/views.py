@@ -36,8 +36,8 @@ def directory():
 		zipsearch = FoodPantries.query.filter_by(FPzipcode= zsearch).first().zipcodesServed
 		#pantrysearch = FoodPantries.query.filter_by(foodPantryName= fpsearch).first().serves
 		#x = currentstate
-		
-		return render_template('results.html', statesearch = statesearch)
+		#return f"{}"
+		return render_template('results.html', statesearch = statesearch) 
 	'''currentstate = FoodPantries.query.get(3)
 	if request.method == 'POST':
 		fpsearch = request.form["foodpantries"]
