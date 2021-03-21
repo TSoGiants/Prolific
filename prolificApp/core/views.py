@@ -33,7 +33,7 @@ def directory():
 		ssearch = form.state.data
 		zsearch = form.zipcode.data
 		statesearch = States.query.filter_by(states= ssearch).first().statesServed
-		zipsearch = FoodPantries.query.filter_by(FPzipcode= zsearch).first()
+		zipsearch = FoodPantries.query.filter_by(FPzipcode= zsearch).first().zipcodesServed
 		#pantrysearch = FoodPantries.query.filter_by(foodPantryName= fpsearch).first().serves
 		#x = currentstate
 		

@@ -9,6 +9,11 @@ serves = db.Table('serves',
 	db.Column('foodpantries_id', db.Integer, db.ForeignKey('food_pantries.foodpantries_id')),
     db.Column('state_id', db.Integer, db.ForeignKey('states.state_id'))
     )
+#connect zipcode table to food pantry 
+zserves = db.Table('zserves',
+	db.Column('foodpantries_id', db.Integer, db.ForeignKey('food_pantries.foodpantries_id')),
+    db.Column('zipcode_id', db.Integer, db.ForeignKey('zipcodes.zipcode_id'))
+    )
 # database set up for food pantry info
 class FoodPantries(db.Model):#, UserMixin):
 	foodpantries_id = db.Column(db.Integer, primary_key=True)
@@ -16,25 +21,25 @@ class FoodPantries(db.Model):#, UserMixin):
 	FPemail = db.Column(db.String(64), unique=True,index=True)
 	FPstreet = db.Column(db.Text)
 	FPcity = db.Column(db.Text)
-	FPzipcode = db.Column(db.Text)
 	FPphone = db.Column(db.Text)
 	FPwebsite = db.Column(db.Text)
 	timings = db.Column(db.Text)
 	infoBring = db.Column(db.Text)
-	bio =db.Column(db.Text)
+	bio = db.Column(db.Text)
 	FPpassword = db.Column(db.Text)
 
 	FPstate = db.relationship('States', secondary=serves, backref= db.backref('statesServed', lazy = 'dynamic') )
+	FPzipcode = db.relationship('Zipcodes', secondary=zserves, backref= db.backref('zipcodesServed', lazy = 'dynamic') )
 
 	#create association table called FPzipcode, delete current FPzipcode
 
-	def __init__(self, foodPantryName, FPemail, FPstreet, FPcity, FPzipcode, FPphone, FPwebsite, timings, infoBring, bio, FPpassword ):
+	def __init__(self, foodPantryName, FPemail, FPstreet, FPcity, FPphone, FPwebsite, timings, infoBring, bio, FPpassword ):
 		self.foodPantryName = foodPantryName
 		self.FPemail = FPemail 
 		self.FPstreet = FPstreet
 		self.FPcity = FPcity
 		#self.FPstate = FPstate
-		self.FPzipcode = FPzipcode
+		#self.FPzipcode = FPzipcode
 		self.FPphone = FPphone
 		self.FPwebsite = FPwebsite
 		self.timings = timings
@@ -86,3 +91,12 @@ class States(db.Model):
 
 
 #create zipcode table
+class Zipcodes(db.Model):
+	zipcode_id = db.Column(db.Integer, primary_key=True)
+	zipcode = db.Column(db.String(20))
+
+	def __init__(self, zipcode):
+		self.zipcode = zipcode
+
+	def __repr__(self):
+		return f"The zipcode is {self.zipcode}"  

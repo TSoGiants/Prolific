@@ -3,7 +3,7 @@ from flask import url_for
 from flask import send_from_directory
 from flask import request
 import os
-from prolificApp.user.models import FoodPantries, Clients, States
+from prolificApp.user.models import FoodPantries, Clients, States, Zipcodes
 from prolificApp import db,app
 from werkzeug.security import generate_password_hash,check_password_hash
 from prolificApp.user.guRegistrationForm import AddUser
@@ -71,7 +71,14 @@ def registerFP():
 		bio = ''
 		FPpassword = form.FPpassword.data
 
-		new_food_pantry = FoodPantries(name, email, street, city, zipcode, phone, website,timings, infoBring, bio, FPpassword) #modify this line, remove zipcode
+		#creating new zipcode entry
+		zipcodeFP = Zipcodes.query.filter_by(zipcode = zipcode).first()
+		if zipcodeFP == None:# If the zipcode entered by user is not in table, create zipcode entry
+			new_zipcode = Zipcodes(zipcode) 
+			db.session.commit()
+
+
+		new_food_pantry = FoodPantries(name, email, street, city, phone, website,timings, infoBring, bio, FPpassword) #modify this line, remove zipcode
 		db.session.add(new_food_pantry)
 		db.session.commit()
 
@@ -82,7 +89,12 @@ def registerFP():
 		if currentState != None:
 			currentState.statesServed.append(currentFP)
 			db.session.commit()
-
+#add in zipcode association 
+		currentZipcode= Zipcodes.query.filter_by(zipcodes= zipcode).first() #search the zipcodes table for the zipcode that was just entered
+		if currentZipcode != None:
+			currentZipcode.zipcodesServed.append(currentFP)
+			db.session.commit()
+			
 		flash("Your account was created successfully!")
 		return redirect(url_for('Users.FPeditprofile'))
 	return render_template('registerFP.html', form = form)
