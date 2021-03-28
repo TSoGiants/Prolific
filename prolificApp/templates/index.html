@@ -5,7 +5,6 @@
     <title></title>
 
     <link rel="stylesheet" href="static/styles/main.scss.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
 
@@ -13,7 +12,7 @@
   <body>
 
    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a href="#">
+    <a href="{{ url_for('core.index') }}">
     <img src="{{ url_for('static',filename='images/foodaccessLogo.svg') }}" width="70" height="50" alt="" loading="lazy"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -21,21 +20,24 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="{{ url_for('core.index') }}">Home <span class="sr-only">(current)</span></a>
-        </li>
-          <li class="nav-item active">
-          <a class="nav-link" href="{{ url_for('core.directory') }}">Directory <span class="sr-only">(current)</span></a>
+          <h5 style="padding-top: 8px; padding-left: 5px"><a class="nav-link" href="{{ url_for('core.directory') }}">Directory <span class="sr-only">(current)</span></a></h5>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="{{ url_for('core.index') }}" >Log Out <span class="sr-only">(current)</span></a>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              test
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+          <!--<h5 style="padding-top: 8px; padding-left: 5px"><a class="nav-link" href="{{ url_for('core.index') }}" >Log Out <span class="sr-only">(current)</span></a></h5>-->
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0" style="margin:10px">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
     </div>
   </nav>
 
@@ -44,6 +46,7 @@
       <a href="{{url_for('Users.registerGU')}}">
         <div class="card float-sm-left homecard1 shadow" style="width: 40%;">
           <div class="card-body">
+            <img src="../static/images/foodpantry.jpg" style="height: 100%; width: 100%; border-radius: 15px; margin-bottom: 15px;">
             <h1 style="text-align:center;"><b>Get Access to Food Pantries Near You</b></h1>
             <h5 style="text-align:center;">‏‏‎Connect with food pantries in your area</h5>
           </div>
@@ -52,17 +55,21 @@
       <a href="{{url_for('Users.registerFP')}}">
         <div class="card float-sm-right homecard2 shadow" style="width: 40%;">
           <div class="card-body">
+            <img src="../static/images/foodshelf.jpg" style="height: 100%; width: 100%; border-radius: 15px; margin-bottom: 15px;">
             <h1 style="text-align:center;"><b>Food Pantries</b></h1>
             <h5 style="text-align:center;">Register your food pantry to provide visibility in your community</h5>
           </div>
         </div>
       </a>
-      <br><br><br><br><br><br><br><br><br><br><br>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
       <div class="card bg-dark text-white bgcard">
         <img src="../static/images/volunteering.jfif" class="card-img" alt="volunteering", style="height: 100%; width: 100%">
         <div class="card-img-overlay">
           <h1 class="card-title"><b>Helping the People!</b></h1>
-          <h5 class="card-text">Tell a story.</h5>
+          <h5 class="card-text">Food banks and food pantries have been essential to helping people in need, and in the wake of COVID-19 millions more are now challenged with hunger. COVID-19 has brought about many complications such as disruptions in supply chains, reduced staff due to health concerns and many more.
+          <br><br><a href="https://www.feedingamerica.org/hunger-blog/food-bank-response-covid-numbers">Learn more.</a></h5>
         </div>
       </div>
     </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
