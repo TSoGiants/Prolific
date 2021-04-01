@@ -123,4 +123,7 @@ overflow:hidden;
   .bgimage{
     position: relative;
   }
-
+  .big-banner3{
+    background-image: url('../images/pasta.jpg');
+    background-size: 100%;
+  }
