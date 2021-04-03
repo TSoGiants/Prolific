@@ -83,6 +83,13 @@ def registerFP():
 		db.session.add(new_food_pantry)
 		db.session.commit()
 
+		#create new state entry
+		stateFP = States.query.filter_by(states = state).first()
+		if stateFP == None: #if the state entered by user is not in table, create a new entry
+			newState = States(state)
+			db.session.add(newState)
+			db.session.commit()
+
 		##add the states association
 		currentFP = FoodPantries.query.filter_by(FPemail = email).first()
 		#return f"{currentFP.FPemail}"
@@ -90,7 +97,7 @@ def registerFP():
 		if currentState != None:
 			currentState.statesServed.append(currentFP)
 			db.session.commit()
-#add in zipcode association 
+		#add in zipcode association 
 		currentZipcode= Zipcodes.query.filter_by(zipcode= zipcode).first() #search the zipcodes table for the zipcode that was just entered
 		if currentZipcode != None:
 			currentZipcode.zipcodesServed.append(currentFP)
