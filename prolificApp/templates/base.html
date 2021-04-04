@@ -6,6 +6,9 @@
 
     <link rel="stylesheet" href="static/styles/main.scss.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
 
@@ -24,17 +27,22 @@
           <h5 style="padding-top: 8px; padding-left: 5px"><a class="nav-link" href="{{ url_for('core.directory') }}">Directory <span class="sr-only">(current)</span></a></h5>
         </li>
       </ul>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <h5 style="padding-top: 8px; padding-left: 5px"><a class="nav-link" href="{{ url_for('core.index') }}" >Log Out <span class="sr-only">(current)</span></a></h5>
-        </li>
-      </ul>
+        <div class="btn-group">
+          <button type="button" class="btn btn-lg btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            User
+          </button>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="#">Link 1</a>
+            <a class="dropdown-item" href="#">Link 2</a>
+            <a class="dropdown-item" href="#">Link 3</a>
+          </div>
+        </div>
     </div>
   </nav>
-    
+
       {% block content %}
 
       {% endblock %}
-    
+
  </body>
 </html>
