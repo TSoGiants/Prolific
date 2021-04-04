@@ -1,47 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
 
-    <link rel="stylesheet" href="static/styles/main.scss.css">
-
-   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
-
-  </head>
-  <body>
-
-   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a href="{{ url_for('core.index') }}">
-    <img src="{{ url_for('static',filename='images/foodaccessLogo.svg') }}" width="70" height="50" alt="" loading="lazy"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <h5 style="padding-top: 8px; padding-left: 5px"><a class="nav-link" href="{{ url_for('core.directory') }}">Directory <span class="sr-only">(current)</span></a></h5>
-        </li>
-      </ul>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              test
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div>
-          <!--<h5 style="padding-top: 8px; padding-left: 5px"><a class="nav-link" href="{{ url_for('core.index') }}" >Log Out <span class="sr-only">(current)</span></a></h5>-->
-        </li>
-      </ul>
-    </div>
-  </nav>
-
+{%extends "base.html"%}
+{%block content%}
   <img src="../static/images/landingPageBackground.png" alt="image", style="height: 100%; width: 100%;">
     <div class = "big-banner">
       <a href="{{url_for('Users.registerGU')}}">
@@ -73,4 +32,5 @@
       </div>
     </div>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+ 
+ {% endblock %}
