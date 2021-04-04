@@ -3,7 +3,7 @@ from flask import url_for
 from flask import send_from_directory
 from flask import request
 import os
-from prolificApp.user.models import FoodPantries, Clients, States
+from prolificApp.user.models import FoodPantries, Clients, States, Zipcodes
 from prolificApp.core.searchForm import Search
 from prolificApp import db,app
 from werkzeug.security import generate_password_hash
@@ -27,27 +27,28 @@ def about():
 def directory():
 	form = Search()
 	if form.validate_on_submit():
-		#currentstate = FoodPantries.query.get(0)
-		#currentstate = FoodPantries.query.all()[0]
+		
 		fpsearch = form.name.data
 		ssearch = form.state.data
+		
 		zsearch = form.zipcode.data
-		statesearch = States.query.filter_by(states= ssearch).first().statesServed
-		#zipsearch = Zipcodes.query.filter_by(FPzipcode= zsearch).first().zipcodesServed
-		#pantrysearch = FoodPantries.query.filter_by(foodPantryName= fpsearch).first().serves
-		#x = currentstate
-		#return f"{}"
-		return render_template('results.html', statesearch = statesearch) 
-	'''currentstate = FoodPantries.query.get(3)
-	if request.method == 'POST':
-		fpsearch = request.form["foodpantries"]
-		ssearch = request.form["FPstate"]
-		zsearch = request.form['FPzipcode']
-		statesearch = FoodPantries.query.filter_by(FPstate= ssearch).first().serves
-		zipsearch = FoodPantries.query.filter_by(FPzipcode= zsearch).first().serves
-		pantrysearch = FoodPantries.query.filter_by(foodPantryName= fpsearch).first().serves
+		statesearch = States.query.filter_by(states= ssearch).first()
+		zipsearch = Zipcodes.query.filter_by(zipcode= zsearch).first()
 
-		return render_template('Directory.html', statesearch=statesearch, zipsearch = zipsearch, pantrysearch= pantrysearch)'''
+
+		if statesearch != None:
+			statesearch = statesearch.statesServed
+
+		if zipsearch != None:	
+			zipsearch = zipsearch.zipcodesServed
+		
+
+		''' ###############CODE TO CONSOLIDATE RESULTS#############
+				create a variable called results, which will be a combination of statesearch and zipsearch '''
+		
+		#return render_template('results.html', statesearch = zipsearch) 
+		return render_template('results.html', statesearch = statesearch) 
+	
 
 
 	return render_template('Directory2.html', form = form)
