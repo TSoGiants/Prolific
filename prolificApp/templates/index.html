@@ -3,7 +3,8 @@
 {%block content%}
   <img src="../static/images/landingPageBackground.png" alt="image", style="height: 100%; width: 100%;">
     <div class = "big-banner">
-      <a href="{{url_for('Users.registerGU')}}">
+
+      <a href="{{url_for('core.directory')}}">
         <div class="card float-sm-left homecard1 shadow" style="width: 40%;">
           <div class="card-body">
             <img src="../static/images/foodpantry.jpg" style="height: 100%; width: 100%; border-radius: 15px; margin-bottom: 15px;">
@@ -12,6 +13,8 @@
           </div>
         </div>
       </a>
+
+      {% if user==none %}
       <a href="{{url_for('Users.registerFP')}}">
         <div class="card float-sm-right homecard2 shadow" style="width: 40%;">
           <div class="card-body">
@@ -21,7 +24,20 @@
           </div>
         </div>
       </a>
+      {% else %}
+      <a href="{{url_for('Users.FPeditprofile')}}">
+        <div class="card float-sm-right homecard2 shadow" style="width: 40%;">
+          <div class="card-body">
+            <img src="../static/images/editing.jpg" style="height: 100%; width: 100%; border-radius: 15px; margin-bottom: 15px;">
+            <h1 style="text-align:center;"><b>Edit Profile</b></h1>
+            <h5 style="text-align:center;">Edit your food pantry's information</h5>
+          </div>
+        </div>
+      </a>
+      {% endif %}
+
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
       <div class="card bg-dark text-white bgcard">
         <img src="../static/images/volunteering.jfif" class="card-img" alt="volunteering", style="height: 100%; width: 100%">
         <div class="card-img-overlay">
@@ -32,5 +48,5 @@
       </div>
     </div>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
- 
+
  {% endblock %}

@@ -1,5 +1,49 @@
 {%extends "base.html"%}
 {%block content%}
+<div class = "big-banner2 jumbotron">
+  <div class="wrapper">
+    <div class="card wrapper" style="width: 35rem;">
+      <div class="card-body">
+        <form method="POST">
+          <img class="center" src= "{{ url_for('static',filename='images/foodaccessLogo.svg') }}" width="70" height="50" alt="food access logo" loading="lazy">
+          <br>
 
+            <h3 style="text-align:center;" class="card-title"><b>‏‏‎‏‎‎‏Edit Profile</b></h3>
+
+              <div class="fpaddress">
+                <label for="fpaddress">Address</label>
+                <input type="text" class="form-control" id="fpaddress" name="fpaddress" placeholder="{{user.FPstreet}}">
+              </div>
+              <div class="fpemail">
+                <label for="fpemail">Food pantry's email</label>
+                <input type="email" class="form-control" id="fpemail" name="fpemail" placeholder="food.pantry@gmail.com">
+              </div>
+              <div class="fpphone">
+                <label for="fpphone">Food pantry's phone number (optional)</label>
+                <input type="text" class="form-control" id="fpphone" name="fpphone" placeholder="(123) 456-7890">
+              </div>
+              <div class="fpwebsite">
+                <label for="fpwebsite">Food pantry's website (optional)</label>
+                <input type="url" class="form-control" id="fpwebsite" name="fbwebsite" placeholder="www.foodpantry.com">
+              </div>
+              <div class="fptimings">
+                <label for="fptimings">Timings</label>
+                <textarea class="form-control" id="fptimings" name="fptimings" placeholder="Sundays: 9:00AM - 2:00PM, Wednesdays: 5:00PM - 7:00PM" rows="2"></textarea>
+              </div>
+              <div class="fpinfo">
+                <label for="fpinfo">Information needed</label>
+                <textarea class="form-control" id="fpbinfo" name="fpinfo" placeholder="What information/documents do first-time clients need to bring?" rows="2"></textarea>
+              </div>
+              <div class="fpbio">
+                <label for="fpbio">Bio</label>
+                <textarea class="form-control" id="fpbio" name="fpbio" placeholder="Let us know a little bit about your food bank! What services do you offer?" rows="2"></textarea>
+              </div>
+              <br></br>
+              </form>
+              <button type="button" class="btn btn-primary btn-lg btn-block">Finish Editing</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}

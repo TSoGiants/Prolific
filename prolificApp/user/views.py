@@ -60,11 +60,11 @@ def logout():
 @user_app.route('/registerFP', methods= ('GET', 'POST'))
 def registerFP():
 	form = AddFoodPantry()
-
+	user = "none"
 	if form.validate_on_submit():
 		name = form.fpname.data
 		email = form.fpemail.data
-		street = form.fpstreet.data 
+		street = form.fpstreet.data
 		city = form.fpcity.data
 		state = form.fpstate.data
 		zipcode = form.fpzipcode.data #we'll use zipcode to create entry in zipcode table
@@ -78,7 +78,7 @@ def registerFP():
 		#creating new zipcode entry
 		zipcodeFP = Zipcodes.query.filter_by(zipcode = zipcode).first()
 		if zipcodeFP == None:# If the zipcode entered by user is not in table, create zipcode entry
-			new_zipcode = Zipcodes(zipcode) 
+			new_zipcode = Zipcodes(zipcode)
 			db.session.add(new_zipcode)
 			db.session.commit()
 
@@ -101,7 +101,7 @@ def registerFP():
 		if currentState != None:
 			currentState.statesServed.append(currentFP)
 			db.session.commit()
-		#add in zipcode association 
+		#add in zipcode association
 		currentZipcode= Zipcodes.query.filter_by(zipcode= zipcode).first() #search the zipcodes table for the zipcode that was just entered
 		if currentZipcode != None:
 			currentZipcode.zipcodesServed.append(currentFP)
@@ -110,8 +110,8 @@ def registerFP():
 		session["currentUserID"] = currentFP.foodpantries_id
 		return render_template('GUeditprofile.html',user = currentFP)
 
-		
-	return render_template('registerFP.html', form = form )
+
+	return render_template('registerFP.html', form = form, user = user )
 
 
 @user_app.route('/registerGU', methods= ('GET', 'POST'))
@@ -141,19 +141,24 @@ def registerGU():
 
 @user_app.route('/GUeditprofile', methods= ('GET', 'POST'))
 def GUeditprofile():
-	return render_template('GUeditprofile.html')
+	user = checkUser()
+	return render_template('GUeditprofile.html', user = user)
 
 
 
 
 @user_app.route('/FPeditprofile', methods= ('GET', 'POST'))
 def FPeditprofile():
-	return render_template('FPeditprofile.html')
+	user = checkUser()
+	return render_template('FPeditprofile.html', user = user)
 
 
 @user_app.route('/profile')
 def profile():
 	return render_template('profile.html')
 
-
-
+def checkUser():
+	if not session.get("currentUserID") is None:
+			return FoodPantries.query.filter_by(foodpantries_id= session["currentUserID"]).first()
+	else:
+		return "none"
