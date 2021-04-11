@@ -30,4 +30,9 @@ $font-family-base:myFont;
   opacity: 0.75;
 }
 
+.round{
+  border-radius: 50%;
+  margin-left: 7px;
+}
+
 @import "../bootstrap/scss/bootstrap";
