@@ -29,8 +29,12 @@ def login():
 
 		#	login_user(user)
 		#	flash('Logged in successfully.')
-		session["currentUser"] = currentUser.clients_id
-		return f"Hii {currentUser.firstName}"
+		session["currentUserID"] = currentUser.clients_id
+		'''if session["currentUser"]:
+			user = session["currentUser"]
+		else:
+			user = "none"
+		return f"Hii {currentUser.firstName, user = user}"'''
 		#return f"{session['currently_logged_in']}"
 	return render_template('login.html', form=form)
 
@@ -48,7 +52,7 @@ def fplogin():
 @user_app.route('/logout')
 @login_required
 def logout():
-	logout_user()
+	session.pop("currentUserID")
 	flash('You logged out!' )
 	return render_template('logout.html')
 
@@ -103,9 +107,11 @@ def registerFP():
 			currentZipcode.zipcodesServed.append(currentFP)
 			db.session.commit()
 
-		flash("Your account was created successfully!")
-		return redirect(url_for('Users.FPeditprofile'))
-	return render_template('registerFP.html', form = form)
+		session["currentUserID"] = currentFP.foodpantries_id
+		return render_template('GUeditprofile.html',user = currentFP)
+
+		
+	return render_template('registerFP.html', form = form )
 
 
 @user_app.route('/registerGU', methods= ('GET', 'POST'))
@@ -148,3 +154,6 @@ def FPeditprofile():
 @user_app.route('/profile')
 def profile():
 	return render_template('profile.html')
+
+
+

@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint, render_template, redirect
+from flask import Flask, Blueprint, render_template, redirect,session
 from flask import url_for
 from flask import send_from_directory
 from flask import request
@@ -14,17 +14,20 @@ core_app = Blueprint('core', __name__)
 
 @core_app.route('/')
 def index():
-	return render_template('index.html')
+	user = checkUser()
+	return render_template('index.html', user = user)
 
 
 @core_app.route('/about')
 def about():
-	return render_template('About.html')
+	user = checkUser()
+	return render_template('About.html', user = user)
 #creates endpoint for the About webpage
 
 
 @core_app.route('/directory', methods= ('GET', 'POST'))
 def directory():
+	user = checkUser()
 	form = Search()
 	if form.validate_on_submit():
 		
@@ -47,17 +50,24 @@ def directory():
 				create a variable called results, which will be a combination of statesearch and zipsearch '''
 		
 		#return render_template('results.html', statesearch = zipsearch) 
-		return render_template('results.html', statesearch = statesearch) 
+		return render_template('results.html', statesearch = statesearch, user = user) 
 	
 
 
-	return render_template('Directory2.html', form = form)
+	return render_template('Directory2.html', form = form, user = user)
 
 #creates endpoint for the directory webpage
 
 @core_app.route('/food pantry profile')
 def fpProfile():
-	return render_template('FoodPantryProfile.html')
+	user = checkUser()
+	return render_template('FoodPantryProfile.html', user = user)
 
 #creates endpoint for the food pantry profile page webpage
+
+def checkUser():
+	if not session.get("currentUserID") is None:
+			return FoodPantries.query.filter_by(foodpantries_id= session["currentUserID"]).first()
+	else:
+		return "none"
 
