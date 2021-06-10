@@ -31,7 +31,7 @@
       {% if user=="none" %}
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <h5 style="padding-top: 8px; padding-left: 5px"><a class="nav-link" href="{{ url_for('core.index') }}" >Log In <span class="sr-only">(current)</span></a></h5>
+            <h5 style="padding-top: 8px; padding-left: 5px"><a class="nav-link" href="{{ url_for('Users.login') }}" >Log In <span class="sr-only">(current)</span></a></h5>
           </li>
         </ul>
       {% else %}
@@ -40,9 +40,9 @@
             {{user.foodPantryName}} <img class="round" src="{{ url_for('static',filename='images/no_pic.svg') }}" style="width:30px; height:30px;">
           </button>
           <div class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item" href="{{user.editprofile}}">Edit profile</a>
+            <a class="dropdown-item" href="{{ url_for('Users.editprofile')}}">Edit profile</a>
             <a class="dropdown-item" href="#">Link 2</a>
-            <a class="dropdown-item" href="{{user.logout}}">Sign out</a>
+            <a class="dropdown-item" href="{{ url_for('Users.logout')}}">Sign out</a>
           </div>
         </div>
       {% endif %}

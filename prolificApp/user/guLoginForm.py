@@ -13,6 +13,7 @@ class guLoginForm(FlaskForm):
 	submit = SubmitField('Log In')
 	
 	def validate(self): #this is the method that validates the form
+		
 		rv = FlaskForm.validate(self) #checks if the data was input
 		if not rv:
 			return False #validation didnt pass 

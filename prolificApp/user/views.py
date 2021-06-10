@@ -18,10 +18,12 @@ user_app = Blueprint('Users', __name__)
 #this route accepts info from form and checks database for users and anthencitates users
 @user_app.route('/login', methods= ('GET', 'POST'))
 def login():
-	form = guLoginForm()
+	user = checkUser()
+	form = fpLoginForm()
 
 	if form.validate_on_submit():
-		currentUser = Clients.query.filter_by(GUemail=form.guemail.data).first()
+		
+		currentUser = FoodPantries.query.filter_by(FPemail=form.fpemail.data).first()
 		#return f"{check_password_hash(user.GUpassword, form.password.data)}"
 		#return f"{user.GUpassword} other one {generate_password_hash(form.password.data)}"
 		#return f"{form.guemail.data}"
@@ -29,14 +31,9 @@ def login():
 
 		#	login_user(user)
 		#	flash('Logged in successfully.')
-		session["currentUserID"] = currentUser.clients_id
-		'''if session["currentUser"]:
-			user = session["currentUser"]
-		else:
-			user = "none"
-		return f"Hii {currentUser.firstName, user = user}"'''
-		#return f"{session['currently_logged_in']}"
-	return render_template('login.html', form=form)
+		session["currentUserID"] = currentUser.foodpantries_id
+		return redirect(url_for('core.index'))
+	return render_template('login.html', form=form, user = user)
 
 @user_app.route('/FPlogin', methods= ('GET', 'POST'))
 def fplogin():
@@ -44,17 +41,18 @@ def fplogin():
 	if form.validate_on_submit():
 		user = Clients.query.filter_by(fpemail=form.email.data).first()
 		if user.check_password(form.password.data) and user is not None:
-			login_user(user)
+			session["currentUserID"] = user.foodpantries_id
 			flash('Logged in successfully.')
 
 	return render_template('FPlogin.html', form=form)
 
 @user_app.route('/logout')
-@login_required
 def logout():
+	user = checkUser()
 	session.pop("currentUserID")
+	user = "none"
 	flash('You logged out!' )
-	return render_template('logout.html')
+	return render_template('logout.html', user = user)
 
 
 @user_app.route('/registerFP', methods= ('GET', 'POST'))
@@ -83,7 +81,7 @@ def registerFP():
 			db.session.commit()
 
 
-		new_food_pantry = FoodPantries(name, email, street, city, phone, website,timings, infoBring, bio, FPpassword) #modify this line, remove zipcode
+		new_food_pantry = FoodPantries(name, email, street, city, phone, website,timings, infoBring, bio, FPpassword)
 		db.session.add(new_food_pantry)
 		db.session.commit()
 
@@ -139,10 +137,10 @@ def registerGU():
 	return render_template('registerGU.html', form = form)
 
 
-@user_app.route('/GUeditprofile', methods= ('GET', 'POST'))
-def GUeditprofile():
+@user_app.route('/editprofile', methods= ('GET', 'POST'))
+def editprofile():
 	user = checkUser()
-	return render_template('GUeditprofile.html', user = user)
+	return render_template('editprofile.html', user = user)
 
 
 
