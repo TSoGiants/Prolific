@@ -3,7 +3,7 @@ from sassutils.wsgi import SassMiddleware
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from prolificApp.configs.config import db_uri
-from flask_login import LoginManager
+#from flask_login import LoginManager
 
 
 app = Flask(__name__)

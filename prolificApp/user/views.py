@@ -10,7 +10,7 @@ from prolificApp.user.guRegistrationForm import AddUser
 from prolificApp.user.fpRegistrationForm import AddFoodPantry
 from prolificApp.user.fpLoginForm import fpLoginForm
 from prolificApp.user.guLoginForm import guLoginForm
-from flask_login import login_user,login_required,logout_user
+#from flask_login import login_user,login_required,logout_user
 
 user_app = Blueprint('Users', __name__)
 
