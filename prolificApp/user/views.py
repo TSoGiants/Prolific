@@ -139,6 +139,10 @@ def registerGU():
 
 @user_app.route('/editprofile', methods= ('GET', 'POST'))
 def editprofile():
+	#create edit profile form
+	#replace html code in editprofile.html using the jinja template
+	#pulling information from the form in this route
+	#update the database
 	user = checkUser()
 	return render_template('editprofile.html', user = user)
 
@@ -156,6 +160,11 @@ def profile():
 	user = checkUser()
 
 	return render_template('profile.html', user = user)
+
+@user_app.route('/test')
+def test():
+	x = checkUser().FPemail
+	return f"{x}"
 
 def checkUser():
 	if not session.get("currentUserID") is None:
