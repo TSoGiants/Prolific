@@ -153,7 +153,9 @@ def FPeditprofile():
 
 @user_app.route('/profile')
 def profile():
-	return render_template('profile.html')
+	user = checkUser()
+
+	return render_template('profile.html', user = user)
 
 def checkUser():
 	if not session.get("currentUserID") is None:
