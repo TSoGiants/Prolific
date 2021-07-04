@@ -10,6 +10,7 @@ from prolificApp.user.guRegistrationForm import AddUser
 from prolificApp.user.fpRegistrationForm import AddFoodPantry
 from prolificApp.user.fpLoginForm import fpLoginForm
 from prolificApp.user.guLoginForm import guLoginForm
+from prolificApp.user.editProfile import Editprofile
 #from flask_login import login_user,login_required,logout_user
 
 user_app = Blueprint('Users', __name__)
@@ -143,6 +144,24 @@ def editprofile():
 	#replace html code in editprofile.html using the jinja template
 	#pulling information from the form in this route
 	#update the database
+	form = Editprofile()
+	if form.validate_on_submit():
+		name = form.fpname.data
+		email = form.fpemail.data
+		street = form.fpstreet.data
+		city = form.fpcity.data
+		state = form.fpstate.data
+		zipcode = form.fpzipcode.data
+		phone = form.fpphone.data
+		website = form.fpwebsite.data
+		timings = form.fptimings.data
+		infoBring = form.fpinfoBring.data
+		bio = form.fpbio.data
+		update = FoodPantries(name, email, street, city, state, zipcode, phone, website, timings, infoBring, bio)
+		db.session.add(update)
+		db.session.commit()
+	
+
 	user = checkUser()
 	return render_template('editprofile.html', user = user)
 
