@@ -163,7 +163,7 @@ def editprofile():
 	
 
 	user = checkUser()
-	return render_template('editprofile.html', user = user)
+	return render_template('editprofile.html', user = user, form = form)
 
 
 
