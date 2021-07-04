@@ -1,8 +1,30 @@
 
 
-{%extends "base2.html"%}
-{%block content2%}
+{%extends "base.html"%}
+{%block content%}
+<div class = "jumbotron big-banner2">
+  <div class="wrapper">
+    <div class="card wrapper" style="width: 35rem;">
+      <div class="card-body">
+        <form method="POST">
+          {{ form.hidden_tag() }}
 
+          {{ form.fpname.label }}
+          {{ form.fpname(class= "form-control") }}
+
+          {{ form.fpemail.label }}
+          {{ form.fpemail(class= "form-control") }}
+
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
 <div class="wrapper">
   <div class="card wrapper" style="width: 35rem;">
     <div class="card-body">
@@ -46,5 +68,3 @@
     </div>
   </div>
 </div>
-
-{% endblock %}
