@@ -1,16 +1,32 @@
 {%extends "base.html"%}
 {%block content%}
+<div class="jumbotron">
 <div class="resultContainer">
+<form method="post">
+	  {# This hidden_tag is a CSRF security feature. #}
+	  {{ form.hidden_tag() }}
+
+
+
+	  {{ form.state.label }}
+	  {{ form.state(class= "form-control") }}
+
+	  {{ form.zipcode.label }}
+	  {{ form.zipcode(class= "form-control") }}
+
+	  {{ form.submit(class= "form-control") }}
+	</form>
 {% for result in statesearch %}
 	<a href="{{url_for('Users.registerGU')}}">
         <div class="card homecard1 shadow" style="width: 40%;">
           <div class="card-body">
+          	<img class="float-left" src="../static/images/broccoli.png" style="height: 25%; width: 25%; border-radius: 15px; margin-bottom: 15px; border-style:solid;">
             <h1 style="text-align:center;"><b>{{ result.foodPantryName }}</b></h1>
-            <h5 style="text-align:center;">‏‏‎{{ result.FPcity }}</h5>
-            <h5 style="text-align:center;">‏‏‎{{ result.FPstate }}</h5>
+            <h5 style="text-align:center;">‏‏‎{{ result.FPstreet }}{{ result.FPcity }} {{ result.FPstate }} {{ result.FPzipcode }}</h5>
           </div>
         </div>
       </a>
 {% endfor %}
+</div>
 </div>
 {% endblock %}

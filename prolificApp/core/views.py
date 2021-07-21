@@ -50,7 +50,7 @@ def directory():
 				create a variable called results, which will be a combination of statesearch and zipsearch '''
 		
 		#return render_template('results.html', statesearch = zipsearch) 
-		return render_template('results.html', statesearch = statesearch, user = user) 
+		return render_template('results.html', statesearch = statesearch, user = user, form = form) 
 	
 
 
